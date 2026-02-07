@@ -1,0 +1,76 @@
+@startuml
+skinparam style strict
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam ArrowColor #333
+skinparam defaultTextAlignment center
+
+actor User
+
+package "UI (Streamlit)" {
+    [Manual Input Form]
+    [CSV Upload]
+    [Session State Management]
+    [Priority Visualization]
+    [AI Analysis Visualization]
+    [CSV Download]
+}
+
+package "Local Logic" {
+    component "Preprocessing\n(preprocess_input())" as Preprocessor
+    component "Dependencies Predictor\n(predict_dependencies())" as DepPredictor
+}
+
+package "Local ML" {
+    artifact "Priority Classifier\n(classifier.pkl)" as Classifier
+    artifact "Scaler (scaler.pkl)" as Scaler
+    artifact "PCA (pca.pkl)" as PCA
+    artifact "GNNRegressor\n(gnn_model.pt)" as GNN
+    artifact "Cost/Time Regressor\n(regressor_cost_time.pkl)" as Regressor
+}
+
+package "External AI Analysis" {
+    [Groq API\nanalyze_requirement()] as Groq
+    [PlantUML Generator] as PlantGen
+}
+
+package "Resources" {
+    database "dataset" as Dataset
+    folder "models" as SavedModels
+}
+
+User --> [Manual Input Form]
+User --> [CSV Upload]
+
+[Manual Input Form] --> DepPredictor
+[CSV Upload] --> DepPredictor
+
+DepPredictor --> GNN
+DepPredictor --> Scaler
+DepPredictor --> PCA
+DepPredictor --> Regressor
+Scaler --> Regressor
+PCA --> Regressor
+
+Regressor --> Preprocessor
+Preprocessor --> Classifier
+
+Classifier --> [Priority Visualization]
+
+[Manual Input Form] --> Groq
+[CSV Upload] --> Groq
+Groq --> PlantGen
+PlantGen --> [AI Analysis Visualization]
+
+[CSV Upload] --> [CSV Download]
+[Priority Visualization] --> [CSV Download]
+[AI Analysis Visualization] --> [CSV Download]
+
+
+Dataset --> DepPredictor
+SavedModels --> GNN
+SavedModels --> Regressor
+SavedModels --> Classifier
+SavedModels --> Scaler
+SavedModels --> PCA
+@enduml
