@@ -1,0 +1,84 @@
+Type,Requirement,Change,Urgency,Origin,N_dependencies,Cost,Time,Priority
+fr,The bottom 3/4 of the table will hold events that occur according to its relevance to current time
+fr,The system shall color code events according to their variance from current time
+fr,The system shall display data from the Sync Matrix 1.0 and Exercise Management Tool 1.0 applications
+fr,The system shall link Events back to either the Sync Matrix 1.0 or the Exercise Management Tool 1.0 applications for modifications
+fr,The system shall allow modification of the display
+fr,The system shall offer a display of all the Events in the exercise
+fr,The system shall filter data by: Venues and Key Events
+fr,The system shall allow a user to define the time segments
+fr,The system shall display the local and exercise time in separate clocks
+fr,The system shall offer the ability to pause and resume the refresh of data
+fr,The system shall provide charts for the Activity or Event actual versus assumed time
+fr,The system shall provide a history report of changes made to the Activity or Event data
+nfr,The look and feel of the system shall conform to the user interface standards of the smart device
+nfr,The user interface shall have standard menus  buttons for navigation
+nfr,The system shall have a professional appearance
+nfr,The product shall have a consistent color scheme and fonts
+nfr,The system shall be used by realtors with no training
+nfr,The system shall be intuitive and self explanatory
+nfr,The product shall be easy for a realtor to learn
+nfr,The product shall use symbols and words that are naturally understandable by the realtor community
+nfr,The product shall produce search results in an acceptable time
+nfr,The search results shall be returned no later 30 seconds after the user has entered the search criteria
+nfr,The product shall generate a CMA report in an acceptable time
+nfr,The CMA report shall be returned no later 60 seconds after the user has entered the CMA report criteria
+nfr,The product shall synchronize contacts and appointments in an acceptable time
+nfr,The product shall synchronize with the office system every hour
+nfr,The product shall be available for use 24 hours per day  365 days  per year
+nfr,Out of 1000 accesses to the system  the system is available 999 times
+nfr,The product shall operate in offline mode whenever internet connection is unavailable
+nfr,The product shall allow the user to view previously downloaded search results  CMA reports  and appointments
+nfr,The product shall retain user preferences in the event of a failure
+nfr,100% of saved user preferences shall be restored when system comes back online
+nfr,The product shall be able to support multiple remote users
+nfr,The product shall be able support 1000 simultaneous users
+nfr,The product shall be capable of handling the existing 1000 users. This number is expected to grow 5 times within the next year
+nfr,The product shall be installed by an untrained realtor   without recourse to separately-printed instructions
+nfr,90% of untrained realtors shall be able to install the product on their device without printed instructions
+nfr,The product is expected to run on Windows CE and Palm operating systems
+nfr,Only registered realtors shall be able to access the system
+nfr,Every user of the system shall be authenticated and authorized
+nfr,The product shall prevent its data from incorrect data being introduced
+fr,The system shall allow a real estate agent to query MLS information
+fr,The user shall be able to get driving directions to a selected property
+fr,The user shall be able to download appointments and contact information for clients
+fr,The system shall display clear property images in the search results
+fr,The system shall update or create new property listings in the MLS
+fr,Realtor shall be able to generate a CMA report based on property criteria
+fr,The system shall be able to call the seller or buyer to schedule an appointment
+fr,The realtor shall be notified of new client appointments after automatic synchronization with office system
+fr,The realtor shall be able to retrieve a map showing property locations for a specified area
+fr,The system shall notify the realtor when a seller or buyer responds to an appointment request
+fr,The product shall allow the user to save the property search results
+nfr,The system shall be easy to use by the Program Administrators/Nursing Staff Members
+nfr,All of the users shall be able to use the system after one day of training
+nfr,The system shall help the user avoid making mistakes while scheduling classes and clinicals for the nursing students
+nfr,The number of mistakes noted by the students shall be decreased by 50% in the first year
+nfr,The system shall be intuitive to the Program Administrators/Nursing Staff Members
+nfr,2 out of 3 Program Administrators/Nursing Staff Members shall successfully be able to use the system to manage the scheduling of classes and clinicals
+nfr,The system shall use symbols and words that are naturally understandable by the user community
+nfr,The verbiage used within the system shall be consistent with Standard English and the terminology of the national Nursing Community
+nfr,Staff members shall be able to complete a set of tasks in a timely manner
+nfr,The response time of general student management tasks shall take no longer than 5 seconds and the response time of schedule generation shall take no longer than 30 seconds
+nfr,The system shall be available for use between the hours of 8am and 6pm
+nfr,The system shall achieve 95% up time
+nfr,system shall be able to handle all of the user requests/usage during business hours
+fr,The system shall be able to display a printable summary of the system log
+fr,The system shall contain contact information (e-mail and phone number) for all people relevant to the system  including (but not limited to) staff members  students  lecture instructors  clinical lab instructors  and clinical site administrators
+fr,The system will use the stored e-mail addresses as a primary means of communicating information to affected parties
+fr,The system will notify affected parties for routine communication purposes including but not limited to informing students of upcoming offered classes (timeline) and what their schedule will be/shall be
+fr,The system will notify affected parties when changes occur affecting clinicals including but not limited to clinical section capacity changes  and clinical section cancellations
+fr,The system will notify affected parties when changes occur affecting classes including but not limited to class cancellations  class section detail changes  and changes to class offerings for a given quarter
+fr,The system will notify affected parties when changes occur affecting cohorts including but not limited to changes to the sequence for a cohort�s program of study and changes to a given week�s schedule (lab cancelled this week due to instructor illness)
+fr,The system will notify affected parties when changes occur affecting specific students including but not limited to changing a student�s status from full time to part time and moving a student to a different clinical section
+fr,Program Administrators/Nursing Staff Members shall have the ability to modify information relating to cohorts including cohort identifier  program of study  preferred sequence of classes and quarters that a cohort will be taking specific classes
+fr,Program Administrators/Nursing Staff Members shall have the ability to modify information relating to a Program of Study within the Nursing Department  including the Program of study name  and required classes for that Program of Study
+fr,Program Administrators/Nursing Staff Members shall have the ability to modify information relating to a Clinical Site including the clinical site name  site contact person  contact information  and address
+fr,Program Administrators/Nursing Staff Members shall have the ability to modify information relating to a Clinical Lab Section  including the clinical site name  the department/section for the lab  the class  instructor  day and time of lab  and contact information
+fr,Program Administrators/Nursing Staff Members shall have the ability to modify information relating to a Nursing Student  including student ID  student name  phone number  e-mail  status (full time or part time)  and program of study
+nfr,The Disputes application shall comply with the corporate standards for user interface creation for internally and externally used applications
+nfr,All screens created as part of the Disputes application must comply with corporate standards for interface creation
+nfr,The list of dispute cases that are displayed after a search is performed must be color coded for easy identification of dispute cases based upon the dispute case status
+nfr,100% of the cardmember and merchant services representatives shall use the Disputes application regularly after a 2-day training course
+nfr,100% of cardmember services representatives shall be able to successfully create a dispute case on the first encounter after completing the training course

@@ -1,0 +1,4102 @@
+Type,Requirement,Change,Urgency,Origin,N_dependencies,Cost,Time,Priority,AI_Analysis,AI_PlantUML
+fr,The bottom 3/4 of the table will hold events that occur according to its relevance to current time,modification,soon,customer,2,4,6,low,"User story:
+As a user, I want to view events that are relevant to the current time in the bottom 3/4 of the table, so that I can easily access and prioritize time-sensitive information.
+
+Components:
+- Event Repository: to store and manage events
+- Event Filter: to determine the relevance of events based on the current time
+- Table Display: to render the events in the table format
+- Time Service: to provide the current time for filtering events
+
+PlantUML:
+```plantuml
+@startuml
+left to right direction
+
+actor User as ""User""
+
+component EventRepository as ""Event Repository""
+component EventFilter as ""Event Filter""
+component TableDisplay as ""Table Display""
+component TimeService as ""Time Service""
+
+User --> TableDisplay
+TableDisplay --> EventFilter
+EventFilter --> EventRepository
+EventFilter --> TimeService
+EventRepository --> TableDisplay
+
+@enduml
+```
+Note: Since the requirement type is ""fr"" (functional requirement), a Use Case Diagram is not the most suitable choice. Instead, a Component Diagram is used to illustrate the relationships between the components involved in implementing","@startuml
+left to right direction
+
+actor User as ""User""
+
+component EventRepository as ""Event Repository""
+component EventFilter as ""Event Filter""
+component TableDisplay as ""Table Display""
+component TimeService as ""Time Service""
+
+User --> TableDisplay
+TableDisplay --> EventFilter
+EventFilter --> EventRepository
+EventFilter --> TimeService
+EventRepository --> TableDisplay
+
+@enduml"
+fr,The system shall color code events according to their variance from current time,modification,soon,customer,1,2,3,low,"User story:
+As a user, I want to visualize events with color coding based on their variance from the current time so that I can quickly identify the timing of events relative to the present moment.
+
+Components:
+- Event Data Collector: responsible for gathering event data
+- Time Variance Calculator: calculates the variance of each event from the current time
+- Color Coding Module: assigns colors to events based on their time variance
+- Event Visualization Component: displays events with their corresponding color codes
+- Current Time Service: provides the current time for variance calculation
+
+PlantUML:
+```plantuml
+@startuml
+left to right direction
+
+actor User as ""User""
+
+component Event_Data_Collector as ""Event Data Collector""
+component Time_Variance_Calculator as ""Time Variance Calculator""
+component Color_Coding_Module as ""Color Coding Module""
+component Event_Visualization_Component as ""Event Visualization Component""
+component Current_Time_Service as ""Current Time Service""
+
+User --> (Visualize Events)
+(Event_Data_Collector) ..> (Time_Variance_Calculator) : provides event data
+(Time_Variance_Calculator) ..> (Color_Coding_Module) : provides variance data
+(Color_Coding_Module) ..> (Event_Visualization_Component) : provides color codes
+(Event_Visualization_Component) --> User : displays colored events
+(Current_Time_Service) ..> (Time_Variance_Calculator) : provides current time
+
+@enduml
+```","@startuml
+left to right direction
+
+actor User as ""User""
+
+component Event_Data_Collector as ""Event Data Collector""
+component Time_Variance_Calculator as ""Time Variance Calculator""
+component Color_Coding_Module as ""Color Coding Module""
+component Event_Visualization_Component as ""Event Visualization Component""
+component Current_Time_Service as ""Current Time Service""
+
+User --> (Visualize Events)
+(Event_Data_Collector) ..> (Time_Variance_Calculator) : provides event data
+(Time_Variance_Calculator) ..> (Color_Coding_Module) : provides variance data
+(Color_Coding_Module) ..> (Event_Visualization_Component) : provides color codes
+(Event_Visualization_Component) --> User : displays colored events
+(Current_Time_Service) ..> (Time_Variance_Calculator) : provides current time
+
+@enduml"
+fr,The system shall display data from the Sync Matrix 1.0 and Exercise Management Tool 1.0 applications,modification,soon,customer,1,2,3,low,"User story:
+As a system administrator, I want to display data from the Sync Matrix 1.0 and Exercise Management Tool 1.0 applications so that I can provide a unified view of the data to the users.
+
+Components:
+- Data Integration Module
+- Sync Matrix 1.0 API Connector
+- Exercise Management Tool 1.0 API Connector
+- Data Visualization Module
+- User Interface Module
+
+PlantUML:
+```plantuml
+@startuml
+left to right direction
+
+actor SystemAdministrator as ""System Administrator""
+actor User as ""User""
+
+component DataIntegrationModule as ""Data Integration Module""
+component SyncMatrixAPIConnector as ""Sync Matrix 1.0 API Connector""
+component ExerciseManagementToolAPIConnector as ""Exercise Management Tool 1.0 API Connector""
+component DataVisualizationModule as ""Data Visualization Module""
+component UserInterfaceModule as ""User Interface Module""
+
+SystemAdministrator -- (Display Data)
+User -- (View Data)
+
+(DataIntegrationModule) ..> (SyncMatrixAPIConnector) : connects to
+(DataIntegrationModule) ..> (ExerciseManagementToolAPIConnector) : connects to
+(DataVisualizationModule) ..> (DataIntegrationModule) : uses
+(UserInterfaceModule) ..> (DataVisualizationModule) : displays
+
+@enduml
+```","@startuml
+left to right direction
+
+actor SystemAdministrator as ""System Administrator""
+actor User as ""User""
+
+component DataIntegrationModule as ""Data Integration Module""
+component SyncMatrixAPIConnector as ""Sync Matrix 1.0 API Connector""
+component ExerciseManagementToolAPIConnector as ""Exercise Management Tool 1.0 API Connector""
+component DataVisualizationModule as ""Data Visualization Module""
+component UserInterfaceModule as ""User Interface Module""
+
+SystemAdministrator -- (Display Data)
+User -- (View Data)
+
+(DataIntegrationModule) ..> (SyncMatrixAPIConnector) : connects to
+(DataIntegrationModule) ..> (ExerciseManagementToolAPIConnector) : connects to
+(DataVisualizationModule) ..> (DataIntegrationModule) : uses
+(UserInterfaceModule) ..> (DataVisualizationModule) : displays
+
+@enduml"
+fr,The system shall link Events back to either the Sync Matrix 1.0 or the Exercise Management Tool 1.0 applications for modifications,modification,soon,customer,1,2,3,low,"User story:
+As a system administrator, I want to link Events back to either the Sync Matrix 1.0 or the Exercise Management Tool 1.0 applications for modifications so that I can efficiently manage and update events from a central location.
+
+Components:
+- Event Management Module
+- Sync Matrix 1.0 Integration Module
+- Exercise Management Tool 1.0 Integration Module
+- Modification Handler Module
+- API Gateway for external application interactions
+
+PlantUML:
+```plantuml
+@startuml
+left to right direction
+
+actor SystemAdministrator as ""System Administrator""
+participant EventManagementModule as ""Event Management Module""
+participant SyncMatrix10 as ""Sync Matrix 1.0""
+participant ExerciseManagementTool10 as ""Exercise Management Tool 1.0""
+participant ModificationHandler as ""Modification Handler Module""
+participant APIGateway as ""API Gateway""
+
+SystemAdministrator --> (Link Events)
+EventManagementModule --> SyncMatrix10 : link for modification
+EventManagementModule --> ExerciseManagementTool10 : link for modification
+SyncMatrix10 --> ModificationHandler : send modification request
+ExerciseManagementTool10 --> ModificationHandler : send modification request
+ModificationHandler --> APIGateway : forward modification through API
+APIGateway --> SyncMatrix10 : modify event
+APIGateway --> ExerciseManagementTool10 : modify event
+
+@enduml
+```","@startuml
+left to right direction
+
+actor SystemAdministrator as ""System Administrator""
+participant EventManagementModule as ""Event Management Module""
+participant SyncMatrix10 as ""Sync Matrix 1.0""
+participant ExerciseManagementTool10 as ""Exercise Management Tool 1.0""
+participant ModificationHandler as ""Modification Handler Module""
+participant APIGateway as ""API Gateway""
+
+SystemAdministrator --> (Link Events)
+EventManagementModule --> SyncMatrix10 : link for modification
+EventManagementModule --> ExerciseManagementTool10 : link for modification
+SyncMatrix10 --> ModificationHandler : send modification request
+ExerciseManagementTool10 --> ModificationHandler : send modification request
+ModificationHandler --> APIGateway : forward modification through API
+APIGateway --> SyncMatrix10 : modify event
+APIGateway --> ExerciseManagementTool10 : modify event
+
+@enduml"
+fr,The system shall allow modification of the display,modification,soon,organization,1,3,4,low,"User story:
+As a user, I want to modify the display so that I can customize the system's appearance to my preferences.
+
+Components:
+- Display Module
+- User Interface Component
+- Configuration Service
+
+PlantUML:
+```plantuml
+@startuml
+left to right direction
+
+actor User as ""User""
+component DisplayModule as ""Display Module""
+component UserInterface as ""User Interface""
+component ConfigurationService as ""Configuration Service""
+
+User -- (Modify Display)
+(Modify Display) ..> DisplayModule : modifies
+DisplayModule --* UserInterface : uses
+UserInterface --* ConfigurationService : uses
+ConfigurationService --* DisplayModule : updates
+
+@enduml
+```","@startuml
+left to right direction
+
+actor User as ""User""
+component DisplayModule as ""Display Module""
+component UserInterface as ""User Interface""
+component ConfigurationService as ""Configuration Service""
+
+User -- (Modify Display)
+(Modify Display) ..> DisplayModule : modifies
+DisplayModule --* UserInterface : uses
+UserInterface --* ConfigurationService : uses
+ConfigurationService --* DisplayModule : updates
+
+@enduml"
+fr,The system shall offer a display of all the Events in the exercise,modification,soon,organization,1,2,3,low,"User story:
+As a user, I want to view a display of all Events in the exercise so that I can have a comprehensive overview of the events.
+
+Components:
+- Event Repository: responsible for storing and retrieving event data
+- Event Service: handles business logic related to events, such as filtering and sorting
+- Event Display: a user interface component that renders the list of events
+- Exercise Context: provides information about the current exercise, used to filter events
+
+PlantUML:
+```plantuml
+@startuml
+left to right direction
+
+actor User as ""User""
+
+component EventRepository as ""Event Repository""
+component EventService as ""Event Service""
+component EventDisplay as ""Event Display""
+component ExerciseContext as ""Exercise Context""
+
+User --> (View Events)
+(EventService) ..> (EventRepository) : retrieve events
+(EventService) ..> (ExerciseContext) : get exercise context
+(EventDisplay) ..> (EventService) : display events
+
+@enduml
+```","@startuml
+left to right direction
+
+actor User as ""User""
+
+component EventRepository as ""Event Repository""
+component EventService as ""Event Service""
+component EventDisplay as ""Event Display""
+component ExerciseContext as ""Exercise Context""
+
+User --> (View Events)
+(EventService) ..> (EventRepository) : retrieve events
+(EventService) ..> (ExerciseContext) : get exercise context
+(EventDisplay) ..> (EventService) : display events
+
+@enduml"
+fr,The system shall filter data by: Venues and Key Events,modification,soon,organization,2,2,3,low,"User story:
+As a data analyst, I want to filter data by venues and key events so that I can easily identify trends and patterns in specific locations and events.
+
+Components:
+- Data Filter Module
+- Venue Filter Component
+- Key Event Filter Component
+- Data Repository
+- User Interface
+
+PlantUML:
+```plantuml
+@startuml
+left to right direction
+
+actor Data_Analyst as ""Data Analyst""
+
+component Data_Filter_Module as ""Data Filter Module""
+component Venue_Filter_Component as ""Venue Filter Component""
+component Key_Event_Filter_Component as ""Key Event Filter Component""
+component Data_Repository as ""Data Repository""
+component User_Interface as ""User Interface""
+
+Data_Analyst -- (uses) User_Interface
+User_Interface -- (requests) Data_Filter_Module
+Data_Filter_Module -- (uses) Venue_Filter_Component
+Data_Filter_Module -- (uses) Key_Event_Filter_Component
+Data_Filter_Module -- (retrieves) Data_Repository
+Venue_Filter_Component -- (retrieves) Data_Repository
+Key_Event_Filter_Component -- (retrieves) Data_Repository
+
+@enduml
+```","@startuml
+left to right direction
+
+actor Data_Analyst as ""Data Analyst""
+
+component Data_Filter_Module as ""Data Filter Module""
+component Venue_Filter_Component as ""Venue Filter Component""
+component Key_Event_Filter_Component as ""Key Event Filter Component""
+component Data_Repository as ""Data Repository""
+component User_Interface as ""User Interface""
+
+Data_Analyst -- (uses) User_Interface
+User_Interface -- (requests) Data_Filter_Module
+Data_Filter_Module -- (uses) Venue_Filter_Component
+Data_Filter_Module -- (uses) Key_Event_Filter_Component
+Data_Filter_Module -- (retrieves) Data_Repository
+Venue_Filter_Component -- (retrieves) Data_Repository
+Key_Event_Filter_Component -- (retrieves) Data_Repository
+
+@enduml"
+fr,The system shall allow a user to define the time segments,modification,soon,organization,1,2,2,low,"User story:
+As a user, I want to define the time segments so that I can organize and manage my schedule effectively.
+
+Components:
+- TimeSegmentManager
+- UserInterface
+- DataStorage
+
+PlantUML:
+```plantuml
+@startuml
+left to right direction
+actor User as ""User""
+component TimeSegmentManager as ""Time Segment Manager""
+component UserInterface as ""User Interface""
+component DataStorage as ""Data Storage""
+
+User -- (Define Time Segments)
+UserInterface --* TimeSegmentManager
+TimeSegmentManager --* DataStorage
+User --* UserInterface
+
+@enduml
+```","@startuml
+left to right direction
+actor User as ""User""
+component TimeSegmentManager as ""Time Segment Manager""
+component UserInterface as ""User Interface""
+component DataStorage as ""Data Storage""
+
+User -- (Define Time Segments)
+UserInterface --* TimeSegmentManager
+TimeSegmentManager --* DataStorage
+User --* UserInterface
+
+@enduml"
+fr,The system shall display the local and exercise time in separate clocks,modification,soon,organization,1,3,5,low,"User story:
+As a system user, I want to view the local and exercise time in separate clocks so that I can easily track and distinguish between the two time displays.
+
+Components:
+- Time Display Module
+- Local Time Component
+- Exercise Time Component
+- Clock Rendering Component
+- Time Synchronization Service
+
+PlantUML:
+```plantuml
+@startuml
+left to right direction
+
+actor User as ""System User""
+
+component TimeDisplayModule as ""Time Display Module""
+component LocalTimeComponent as ""Local Time Component""
+component ExerciseTimeComponent as ""Exercise Time Component""
+component ClockRenderingComponent as ""Clock Rendering Component""
+component TimeSynchronizationService as ""Time Synchronization Service""
+
+User --> TimeDisplayModule
+TimeDisplayModule --* LocalTimeComponent
+TimeDisplayModule --* ExerciseTimeComponent
+LocalTimeComponent --* ClockRenderingComponent
+ExerciseTimeComponent --* ClockRenderingComponent
+TimeSynchronizationService --* LocalTimeComponent
+TimeSynchronizationService --* ExerciseTimeComponent
+
+@enduml
+```","@startuml
+left to right direction
+
+actor User as ""System User""
+
+component TimeDisplayModule as ""Time Display Module""
+component LocalTimeComponent as ""Local Time Component""
+component ExerciseTimeComponent as ""Exercise Time Component""
+component ClockRenderingComponent as ""Clock Rendering Component""
+component TimeSynchronizationService as ""Time Synchronization Service""
+
+User --> TimeDisplayModule
+TimeDisplayModule --* LocalTimeComponent
+TimeDisplayModule --* ExerciseTimeComponent
+LocalTimeComponent --* ClockRenderingComponent
+ExerciseTimeComponent --* ClockRenderingComponent
+TimeSynchronizationService --* LocalTimeComponent
+TimeSynchronizationService --* ExerciseTimeComponent
+
+@enduml"
+fr,The system shall offer the ability to pause and resume the refresh of data,modification,soon,developer knowledge,1,3,4,low,"User story:
+As a system administrator, I want to pause and resume the refresh of data so that I can control the timing and frequency of data updates to ensure optimal system performance and minimize disruptions.
+
+Components:
+- Data Refresh Module
+- Pause/Resume Controller
+- Data Storage Component
+- System Administration Interface
+
+PlantUML:
+```plantuml
+@startuml
+left to right direction
+actor SystemAdministrator as ""System Administrator""
+component DataRefreshModule as ""Data Refresh Module""
+component PauseResumeController as ""Pause/Resume Controller""
+component DataStorageComponent as ""Data Storage Component""
+component SystemAdministrationInterface as ""System Administration Interface""
+
+SystemAdministrator -- (Pause/Resume Data Refresh)
+SystemAdministrator ..> SystemAdministrationInterface : uses
+SystemAdministrationInterface ..> PauseResumeController : sends control signals
+PauseResumeController ..> DataRefreshModule : controls
+DataRefreshModule ..> DataStorageComponent : updates
+@enduml
+```","@startuml
+left to right direction
+actor SystemAdministrator as ""System Administrator""
+component DataRefreshModule as ""Data Refresh Module""
+component PauseResumeController as ""Pause/Resume Controller""
+component DataStorageComponent as ""Data Storage Component""
+component SystemAdministrationInterface as ""System Administration Interface""
+
+SystemAdministrator -- (Pause/Resume Data Refresh)
+SystemAdministrator ..> SystemAdministrationInterface : uses
+SystemAdministrationInterface ..> PauseResumeController : sends control signals
+PauseResumeController ..> DataRefreshModule : controls
+DataRefreshModule ..> DataStorageComponent : updates
+@enduml"
+fr,The system shall provide charts for the Activity or Event actual versus assumed time,modification,soon,developer knowledge,1,2,3,low,"User story:
+As a system user, I want to view charts comparing the actual and assumed time for Activities or Events so that I can analyze and understand the discrepancies between planned and actual time allocations.
+
+Components:
+- Data Collector: responsible for gathering actual and assumed time data for Activities and Events.
+- Data Processor: handles the calculation and comparison of actual and assumed time data.
+- Chart Generator: creates visual representations (charts) of the compared data.
+- User Interface: provides an interactive platform for users to view and interact with the generated charts.
+
+PlantUML:
+```plantuml
+@startuml
+left to right direction
+
+actor User as ""System User""
+
+component DataCollector as ""Data Collector""
+component DataProcessor as ""Data Processor""
+component ChartGenerator as ""Chart Generator""
+component UserInterface as ""User Interface""
+
+User -- (View Charts)
+User --> UserInterface
+
+UserInterface --* ChartGenerator
+ChartGenerator --* DataProcessor
+DataProcessor --* DataCollector
+
+@enduml
+```","@startuml
+left to right direction
+
+actor User as ""System User""
+
+component DataCollector as ""Data Collector""
+component DataProcessor as ""Data Processor""
+component ChartGenerator as ""Chart Generator""
+component UserInterface as ""User Interface""
+
+User -- (View Charts)
+User --> UserInterface
+
+UserInterface --* ChartGenerator
+ChartGenerator --* DataProcessor
+DataProcessor --* DataCollector
+
+@enduml"
+fr,The system shall provide a history report of changes made to the Activity or Event data,modification,soon,customer,1,2,2,low,"User story:
+As a system administrator, I want to generate a history report of changes made to the Activity or Event data so that I can track and audit all modifications.
+
+Components:
+- Activity/Event Data Repository
+- Change History Service
+- Reporting Module
+- User Interface (for report generation and display)
+
+PlantUML:
+```plantuml
+@startuml
+left to right direction
+
+actor System_Administrator as ""System Administrator""
+component Activity_Event_Data_Repository as ""Activity/Event Data Repository""
+component Change_History_Service as ""Change History Service""
+component Reporting_Module as ""Reporting Module""
+component User_Interface as ""User Interface""
+
+System_Administrator --> User_Interface
+User_Interface --> Reporting_Module
+Reporting_Module --> Change_History_Service
+Change_History_Service --> Activity_Event_Data_Repository
+
+@enduml
+```","@startuml
+left to right direction
+
+actor System_Administrator as ""System Administrator""
+component Activity_Event_Data_Repository as ""Activity/Event Data Repository""
+component Change_History_Service as ""Change History Service""
+component Reporting_Module as ""Reporting Module""
+component User_Interface as ""User Interface""
+
+System_Administrator --> User_Interface
+User_Interface --> Reporting_Module
+Reporting_Module --> Change_History_Service
+Change_History_Service --> Activity_Event_Data_Repository
+
+@enduml"
+nfr,The look and feel of the system shall conform to the user interface standards of the smart device,modification,soon,customer,0,2,2,low,"User story:
+As a smart device user, I want the system to have a consistent look and feel with the device's user interface standards so that I can navigate and use the system intuitively.
+
+Components:
+- User Interface (UI) Module
+- Device Interface Adapter
+- Style Guide Enforcement Component
+- Layout Management System
+- Device-specific UI Renderer
+
+PlantUML:
+```plantuml
+@startuml
+component UserInterface as ""User Interface (UI) Module""
+component DeviceInterfaceAdapter as ""Device Interface Adapter""
+component StyleGuideEnforcement as ""Style Guide Enforcement Component""
+component LayoutManagement as ""Layout Management System""
+component DeviceSpecificRenderer as ""Device-specific UI Renderer""
+
+User -> UserInterface : uses
+UserInterface --* DeviceInterfaceAdapter : adapts to
+DeviceInterfaceAdapter --* StyleGuideEnforcement : enforces
+StyleGuideEnforcement --* LayoutManagement : manages
+LayoutManagement --* DeviceSpecificRenderer : renders
+DeviceSpecificRenderer --* DeviceInterfaceAdapter : renders for
+
+@enduml
+```","@startuml
+component ""UserInterface as ""User Interface (UI) Module""
+component DeviceInterfaceAdapter as ""Device Interface Adapter""
+component StyleGuideEnforcement as ""Style Guide Enforcement Component""
+component LayoutManagement as ""Layout Management System""
+component DeviceSpecificRenderer"" as ""Device-specific UI Renderer""
+
+User -> UserInterface : uses
+UserInterface --* DeviceInterfaceAdapter : adapts to
+DeviceInterfaceAdapter --* StyleGuideEnforcement : enforces
+StyleGuideEnforcement --* LayoutManagement : manages
+LayoutManagement --* DeviceSpecificRenderer : renders
+DeviceSpecificRenderer --* DeviceInterfaceAdapter : renders for
+
+@enduml"
+nfr,The user interface shall have standard menus  buttons for navigation,modification,soon,organization,1,2,3,low,"User story:
+As a user, I want to navigate through the application using standard menus and buttons so that I can easily access different features and functions.
+
+Components:
+- Navigation Menu Component
+- Button Component
+- User Interface Component
+
+PlantUML:
+```plantuml
+@startuml
+component NavigationMenuComponent as ""Navigation Menu""
+component ButtonComponent as ""Button""
+component UserInterfaceComponent as ""User Interface""
+
+UserInterfaceComponent --* NavigationMenuComponent
+UserInterfaceComponent --* ButtonComponent
+NavigationMenuComponent --* ButtonComponent
+
+actor User as ""User""
+
+User -- UserInterfaceComponent
+@enduml
+```
+Note: The component diagram shows the relationships between the different components, with the User Interface Component being the main component that interacts with the Navigation Menu Component and the Button Component. The User actor interacts with the User Interface Component.","@startuml
+component ""NavigationMenuComponent as ""Navigation Menu""
+component ButtonComponent as ""Button""
+component UserInterfaceComponent as ""User Interface""
+
+UserInterfaceComponent --* NavigationMenuComponent
+UserInterfaceComponent --* ButtonComponent
+NavigationMenuComponent --* ButtonComponent
+
+actor User"" as ""User""
+
+User -- UserInterfaceComponent
+@enduml"
+nfr,The system shall have a professional appearance,modification,soon,developer knowledge,0,2,3,low,"User story:
+As a user, I want the system to have a professional appearance so that I can trust and feel confident in using it.
+
+Components:
+- User Interface (UI) Module
+- Branding and Styling Module
+- Layout and Design Module
+- Accessibility Module
+- Testing and Validation Module
+
+PlantUML:
+```plantuml
+@startuml
+component UserInterface as ""User Interface (UI) Module""
+component BrandingAndStyling as ""Branding and Styling Module""
+component LayoutAndDesign as ""Layout and Design Module""
+component Accessibility as ""Accessibility Module""
+component TestingAndValidation as ""Testing and Validation Module""
+
+UserInterface --* BrandingAndStyling
+UserInterface --* LayoutAndDesign
+UserInterface --* Accessibility
+TestingAndValidation --* UserInterface
+
+actor User as ""User""
+
+User --* UserInterface
+
+@enduml
+```
+Note:","@startuml
+component ""UserInterface as ""User Interface (UI) Module""
+component BrandingAndStyling as ""Branding and Styling Module""
+component LayoutAndDesign as ""Layout and Design Module""
+component Accessibility as ""Accessibility Module""
+component TestingAndValidation as ""Testing and Validation Module""
+
+UserInterface --* BrandingAndStyling
+UserInterface --* LayoutAndDesign
+UserInterface --* Accessibility
+TestingAndValidation --* UserInterface
+
+actor User"" as ""User""
+
+User --* UserInterface
+
+@enduml"
+nfr,The product shall have a consistent color scheme and fonts,modification,soon,organization,1,3,4,low,"User story:
+As a user, I want the product to have a consistent color scheme and fonts so that the interface is visually appealing and easy to use.
+
+Components:
+- Branding Module: responsible for defining and managing the color scheme and fonts used throughout the product.
+- UI Component Library: a collection of reusable UI components that adhere to the consistent color scheme and fonts.
+- Style Guide: a document that outlines the usage of the color scheme and fonts across the product.
+
+PlantUML:
+```plantuml
+@startuml
+component BrandingModule as ""Branding Module""
+component UIComponentLibrary as ""UI Component Library""
+component StyleGuide as ""Style Guide""
+component User as ""User""
+
+User --->> BrandingModule : uses consistent color scheme and fonts
+BrandingModule --* UIComponentLibrary : defines color scheme and fonts
+UIComponentLibrary --* StyleGuide : adheres to style guide
+StyleGuide --* BrandingModule : outlines usage of color scheme and fonts
+@enduml
+```","@startuml
+component ""BrandingModule as ""Branding Module""
+component UIComponentLibrary as ""UI Component Library""
+component StyleGuide as ""Style Guide""
+component User"" as ""User""
+
+User --->> BrandingModule : uses consistent color scheme and fonts
+BrandingModule --* UIComponentLibrary : defines color scheme and fonts
+UIComponentLibrary --* StyleGuide : adheres to style guide
+StyleGuide --* BrandingModule : outlines usage of color scheme and fonts
+@enduml"
+nfr,The system shall be used by realtors with no training,modification,later,market,1,3,4,low,"User story:
+As a realtor, I want to use the system intuitively without needing training so that I can efficiently manage my properties and clients.
+
+Components:
+- User Interface (UI) Module: to provide an intuitive and user-friendly interface for realtors
+- Guidance Module: to offer contextual help and guidance throughout the system
+- Simplified Workflow Module: to streamline processes and reduce complexity for realtors
+- Error Prevention and Recovery Module: to minimize errors and provide easy recovery options when mistakes occur
+- Accessibility Module: to ensure the system is accessible and usable by realtors with varying levels of technical proficiency
+
+PlantUML:
+```plantuml
+@startuml
+component ""User Interface (UI) Module"" as UI
+component ""Guidance Module"" as GM
+component ""Simplified Workflow Module"" as SWM
+component ""Error Prevention and Recovery Module"" as EPRM
+component ""Accessibility Module"" as AM
+
+actor ""Realtor"" as R
+
+R ---> UI
+UI --* GM
+UI --* SWM
+UI --* EPRM
+UI --* AM
+
+@enduml
+```","@startuml
+component """"User Interface (UI) Module"" as UI
+component ""Guidance Module"" as GM
+component ""Simplified Workflow Module"" as SWM
+component ""Error Prevention and Recovery Module"" as EPRM
+component ""Accessibility Module"" as AM
+
+actor ""Realtor"""" as R
+
+R ---> UI
+UI --* GM
+UI --* SWM
+UI --* EPRM
+UI --* AM
+
+@enduml"
+nfr,The system shall be intuitive and self explanatory,modification,soon,developer knowledge,1,3,3,low,"User story:
+As a user, I want to easily understand and navigate the system without needing extensive documentation or training, so that I can efficiently use the system and achieve my goals.
+
+Components:
+- User Interface (UI) Module: responsible for providing an intuitive and user-friendly interface
+- Feedback Mechanism: provides instant feedback to user actions, helping them understand the system's behavior
+- Guidance Module: offers contextual guidance, such as tooltips, hints, and tutorials, to facilitate learning
+- Error Handling Module: handles errors in a way that is clear and helpful to the user, providing meaningful error messages and suggestions for correction
+- Accessibility Module: ensures the system is accessible to a wide range of users, including those with disabilities
+
+PlantUML:
+```plantuml
+@startuml
+component UserInterface as ""User Interface (UI) Module""
+component FeedbackMechanism as ""Feedback Mechanism""
+component GuidanceModule as ""Guidance Module""
+component ErrorHandling as ""Error Handling Module""
+component Accessibility as ""Accessibility Module""
+
+user ->> UserInterface
+UserInterface -->> FeedbackMechanism
+UserInterface -->> GuidanceModule
+UserInterface -->> ErrorHandling
+UserInterface -->> Accessibility
+
+FeedbackMechanism -->> UserInterface
+GuidanceModule -->> UserInterface
+ErrorHandling -->> UserInterface
+Accessibility -->> UserInterface
+
+@enduml
+```","@startuml
+component ""UserInterface as ""User Interface (UI) Module""
+component FeedbackMechanism as ""Feedback Mechanism""
+component GuidanceModule as ""Guidance Module""
+component ErrorHandling as ""Error Handling Module""
+component Accessibility"" as ""Accessibility Module""
+
+user ->> UserInterface
+UserInterface -->> FeedbackMechanism
+UserInterface -->> GuidanceModule
+UserInterface -->> ErrorHandling
+UserInterface -->> Accessibility
+
+FeedbackMechanism -->> UserInterface
+GuidanceModule -->> UserInterface
+ErrorHandling -->> UserInterface
+Accessibility -->> UserInterface
+
+@enduml"
+nfr,The product shall be easy for a realtor to learn,modification,soon,developer knowledge,2,3,4,low,"User story:
+As a realtor, I want to easily learn and navigate the product's features so that I can efficiently manage my properties and clients.
+
+Components:
+- User Interface (UI) Module: responsible for providing an intuitive and user-friendly interface for realtors to interact with the product.
+- Tutorial/Onboarding Module: provides guided tutorials and onboarding processes to help realtors learn the product's features and functionality.
+- Contextual Help Module: offers contextual help and support to realtors as they use the product, reducing the need for extensive training or documentation.
+- Feedback Mechanism: allows realtors to provide feedback on the product's usability and suggest improvements, enabling the product to adapt to their needs.
+
+PlantUML:
+```plantuml
+@startuml
+component ""User Interface (UI)"" as UI
+component ""Tutorial/Onboarding"" as Onboarding
+component ""Contextual Help"" as Help
+component ""Feedback Mechanism"" as Feedback
+
+actor ""Realtor"" as Realtor
+
+Realtor --> UI
+UI --> Onboarding
+UI --> Help
+Realtor --> Feedback
+Feedback --> UI
+
+@enduml
+```","@startuml
+component """"User Interface (UI)"" as UI
+component ""Tutorial/Onboarding"" as Onboarding
+component ""Contextual Help"" as Help
+component ""Feedback Mechanism"" as Feedback
+
+actor ""Realtor"""" as Realtor
+
+Realtor --> UI
+UI --> Onboarding
+UI --> Help
+Realtor --> Feedback
+Feedback --> UI
+
+@enduml"
+nfr,The product shall use symbols and words that are naturally understandable by the realtor community,modification,soon,developer knowledge,3,3,5,low,"User story:
+As a realtor, I want to use a product that communicates in a language and terminology that is familiar to me so that I can easily understand and navigate the system.
+
+Components:
+- Terminology Management Module
+- Symbol Library
+- User Interface Component
+- Localization Module
+- Community Feedback Mechanism
+
+PlantUML:
+```plantuml
+@startuml
+component TerminologyManagementModule as ""Terminology Management Module""
+component SymbolLibrary as ""Symbol Library""
+component UserInterfaceComponent as ""User Interface Component""
+component LocalizationModule as ""Localization Module""
+component CommunityFeedbackMechanism as ""Community Feedback Mechanism""
+
+actor Realtor as ""Realtor""
+
+Realtor --> UserInterfaceComponent
+UserInterfaceComponent --> TerminologyManagementModule
+UserInterfaceComponent --> SymbolLibrary
+TerminologyManagementModule --> LocalizationModule
+SymbolLibrary --> LocalizationModule
+CommunityFeedbackMechanism --> TerminologyManagementModule
+CommunityFeedbackMechanism --> SymbolLibrary
+
+@enduml
+```","@startuml
+component ""TerminologyManagementModule as ""Terminology Management Module""
+component SymbolLibrary as ""Symbol Library""
+component UserInterfaceComponent as ""User Interface Component""
+component LocalizationModule as ""Localization Module""
+component CommunityFeedbackMechanism as ""Community Feedback Mechanism""
+
+actor Realtor"" as ""Realtor""
+
+Realtor --> UserInterfaceComponent
+UserInterfaceComponent --> TerminologyManagementModule
+UserInterfaceComponent --> SymbolLibrary
+TerminologyManagementModule --> LocalizationModule
+SymbolLibrary --> LocalizationModule
+CommunityFeedbackMechanism --> TerminologyManagementModule
+CommunityFeedbackMechanism --> SymbolLibrary
+
+@enduml"
+nfr,The product shall produce search results in an acceptable time,modification,soon,developer knowledge,1,3,4,low,"User story:
+As a user, I want the search function to return results quickly so that I can efficiently find the information I need.
+
+Components:
+- Search Module
+- Database Module
+- Indexing Module
+- Caching Module
+- Query Optimization Module
+
+PlantUML:
+```plantuml
+@startuml
+component SearchModule as ""Search Module""
+component DatabaseModule as ""Database Module""
+component IndexingModule as ""Indexing Module""
+component CachingModule as ""Caching Module""
+component QueryOptimizationModule as ""Query Optimization Module""
+
+User --> SearchModule : Search Request
+SearchModule --> QueryOptimizationModule : Optimize Query
+QueryOptimizationModule --> DatabaseModule : Execute Query
+DatabaseModule --> IndexingModule : Use Index
+IndexingModule --> CachingModule : Check Cache
+CachingModule --> SearchModule : Return Results
+SearchModule --> User : Display Results
+
+@enduml
+```","@startuml
+component ""SearchModule as ""Search Module""
+component DatabaseModule as ""Database Module""
+component IndexingModule as ""Indexing Module""
+component CachingModule as ""Caching Module""
+component QueryOptimizationModule"" as ""Query Optimization Module""
+
+User --> SearchModule : Search Request
+SearchModule --> QueryOptimizationModule : Optimize Query
+QueryOptimizationModule --> DatabaseModule : Execute Query
+DatabaseModule --> IndexingModule : Use Index
+IndexingModule --> CachingModule : Check Cache
+CachingModule --> SearchModule : Return Results
+SearchModule --> User : Display Results
+
+@enduml"
+nfr,The search results shall be returned no later 30 seconds after the user has entered the search criteria,modification,later,customer,0,3,6,low,"User story:
+As a user, I want the search results to be returned quickly so that I can efficiently find the information I need.
+
+Components:
+- Search Bar Component: responsible for collecting user input
+- Search Query Processor: handles the search query and retrieves relevant data
+- Database: stores the data to be searched
+- Result Renderer: displays the search results to the user
+- Timeout Handler: monitors the search process and ensures it completes within 30 seconds
+
+PlantUML:
+```plantuml
+@startuml
+component SearchBar as ""Search Bar Component""
+component SearchQueryProcessor as ""Search Query Processor""
+component Database as ""Database""
+component ResultRenderer as ""Result Renderer""
+component TimeoutHandler as ""Timeout Handler""
+
+SearchBar -->> SearchQueryProcessor : sends search query
+SearchQueryProcessor -->> Database : retrieves data
+Database -->> SearchQueryProcessor : returns data
+SearchQueryProcessor -->> ResultRenderer : sends results
+ResultRenderer -->> SearchBar : displays results
+TimeoutHandler -->> SearchQueryProcessor : monitors timeout
+SearchQueryProcessor -->> TimeoutHandler : reports progress
+
+actor User as ""User""
+User -->> SearchBar : enters search criteria
+@enduml
+```","@startuml
+component ""SearchBar as ""Search Bar Component""
+component SearchQueryProcessor as ""Search Query Processor""
+component Database as ""Database""
+component ResultRenderer as ""Result Renderer""
+component TimeoutHandler as ""Timeout Handler""
+
+SearchBar -->> SearchQueryProcessor : sends search query
+SearchQueryProcessor -->> Database : retrieves data
+Database -->> SearchQueryProcessor : returns data
+SearchQueryProcessor -->> ResultRenderer : sends results
+ResultRenderer -->> SearchBar : displays results
+TimeoutHandler -->> SearchQueryProcessor : monitors timeout
+SearchQueryProcessor -->> TimeoutHandler : reports progress
+
+actor User"" as ""User""
+User -->> SearchBar : enters search criteria
+@enduml"
+nfr,The product shall generate a CMA report in an acceptable time,modification,soon,developer knowledge,1,2,3,low,"User story:
+As a system administrator, I want the product to generate a CMA report within an acceptable time so that I can ensure timely decision-making and compliance.
+
+Components:
+- Report Generator Module
+- Data Retrieval Module
+- Performance Optimization Module
+- Time Measurement Module
+- CMA Report Formatter
+
+PlantUML:
+```plantuml
+@startuml
+component ReportGenerator as ""Report Generator Module""
+component DataRetrieval as ""Data Retrieval Module""
+component PerformanceOptimization as ""Performance Optimization Module""
+component TimeMeasurement as ""Time Measurement Module""
+component CMAReportFormatter as ""CMA Report Formatter""
+
+actor SystemAdministrator as ""System Administrator""
+
+SystemAdministrator --> ReportGenerator
+ReportGenerator --> DataRetrieval
+DataRetrieval --> PerformanceOptimization
+PerformanceOptimization --> TimeMeasurement
+TimeMeasurement --> ReportGenerator
+ReportGenerator --> CMAReportFormatter
+CMAReportFormatter --> SystemAdministrator
+
+@enduml
+```","@startuml
+component ""ReportGenerator as ""Report Generator Module""
+component DataRetrieval as ""Data Retrieval Module""
+component PerformanceOptimization as ""Performance Optimization Module""
+component TimeMeasurement as ""Time Measurement Module""
+component CMAReportFormatter as ""CMA Report Formatter""
+
+actor SystemAdministrator"" as ""System Administrator""
+
+SystemAdministrator --> ReportGenerator
+ReportGenerator --> DataRetrieval
+DataRetrieval --> PerformanceOptimization
+PerformanceOptimization --> TimeMeasurement
+TimeMeasurement --> ReportGenerator
+ReportGenerator --> CMAReportFormatter
+CMAReportFormatter --> SystemAdministrator
+
+@enduml"
+nfr,The CMA report shall be returned no later 60 seconds after the user has entered the CMA report criteria,modification,later,customer,0,3,5,low,"User story:
+As a user, I want to receive the CMA report within 60 seconds after entering the report criteria so that I can quickly make informed decisions based on the report.
+
+Components:
+- CMA Report Generator
+- Report Criteria Input Module
+- Report Processing Module
+- Report Storage Module
+- Timer Module
+- User Interface Module
+
+PlantUML:
+```plantuml
+@startuml
+component CMA_Report_Generator as ""CMA Report Generator""
+component Report_Criteria_Input_Module as ""Report Criteria Input Module""
+component Report_Processing_Module as ""Report Processing Module""
+component Report_Storage_Module as ""Report Storage Module""
+component Timer_Module as ""Timer Module""
+component User_Interface_Module as ""User Interface Module""
+
+actor User as ""User""
+
+User --> User_Interface_Module
+User_Interface_Module --> Report_Criteria_Input_Module
+Report_Criteria_Input_Module --> Report_Processing_Module
+Report_Processing_Module --> CMA_Report_Generator
+CMA_Report_Generator --> Report_Storage_Module
+Report_Storage_Module --> User_Interface_Module
+Timer_Module --> Report_Processing_Module
+
+@enduml
+```
+Note:","@startuml
+component ""CMA_Report_Generator as ""CMA Report Generator""
+component Report_Criteria_Input_Module as ""Report Criteria Input Module""
+component Report_Processing_Module as ""Report Processing Module""
+component Report_Storage_Module as ""Report Storage Module""
+component Timer_Module as ""Timer Module""
+component User_Interface_Module as ""User Interface Module""
+
+actor User"" as ""User""
+
+User --> User_Interface_Module
+User_Interface_Module --> Report_Criteria_Input_Module
+Report_Criteria_Input_Module --> Report_Processing_Module
+Report_Processing_Module --> CMA_Report_Generator
+CMA_Report_Generator --> Report_Storage_Module
+Report_Storage_Module --> User_Interface_Module
+Timer_Module --> Report_Processing_Module
+
+@enduml"
+nfr,The product shall synchronize contacts and appointments in an acceptable time,modification,soon,organization,1,2,3,low,"User story:
+As a user, I want the system to synchronize my contacts and appointments in a timely manner so that I can access my up-to-date information quickly.
+
+Components:
+- Contact Synchronization Module
+- Appointment Synchronization Module
+- Data Storage Component
+- Network Communication Component
+- Time Management Component
+- User Interface Component
+
+PlantUML:
+```plantuml
+@startuml
+component ContactSynchronization as ""Contact Synchronization Module""
+component AppointmentSynchronization as ""Appointment Synchronization Module""
+component DataStorage as ""Data Storage Component""
+component NetworkCommunication as ""Network Communication Component""
+component TimeManagement as ""Time Management Component""
+component UserInterface as ""User Interface Component""
+
+UserInterface --* ContactSynchronization
+UserInterface --* AppointmentSynchronization
+ContactSynchronization --* DataStorage
+AppointmentSynchronization --* DataStorage
+ContactSynchronization --* NetworkCommunication
+AppointmentSynchronization --* NetworkCommunication
+TimeManagement --* ContactSynchronization
+TimeManagement --* AppointmentSynchronization
+
+actor User as ""User""
+
+User --* UserInterface
+
+@enduml
+```","@startuml
+component ""ContactSynchronization as ""Contact Synchronization Module""
+component AppointmentSynchronization as ""Appointment Synchronization Module""
+component DataStorage as ""Data Storage Component""
+component NetworkCommunication as ""Network Communication Component""
+component TimeManagement as ""Time Management Component""
+component UserInterface as ""User Interface Component""
+
+UserInterface --* ContactSynchronization
+UserInterface --* AppointmentSynchronization
+ContactSynchronization --* DataStorage
+AppointmentSynchronization --* DataStorage
+ContactSynchronization --* NetworkCommunication
+AppointmentSynchronization --* NetworkCommunication
+TimeManagement --* ContactSynchronization
+TimeManagement --* AppointmentSynchronization
+
+actor User"" as ""User""
+
+User --* UserInterface
+
+@enduml"
+nfr,The product shall synchronize with the office system every hour,modification,soon,organization,1,2,3,low,"User story:
+As a system administrator, I want the product to automatically synchronize with the office system every hour so that data consistency is maintained across both systems.
+
+Components:
+- Office System Interface
+- Synchronization Module
+- Scheduler
+- Data Repository
+
+PlantUML:
+```plantuml
+@startuml
+component OfficeSystemInterface as ""Office System Interface""
+component SynchronizationModule as ""Synchronization Module""
+component Scheduler as ""Scheduler""
+component DataRepository as ""Data Repository""
+
+OfficeSystemInterface --* SynchronizationModule : uses
+SynchronizationModule --* Scheduler : triggered by
+SynchronizationModule --* DataRepository : updates
+Scheduler --* SynchronizationModule : triggers
+DataRepository --* OfficeSystemInterface : reflects
+
+actor SystemAdministrator as ""System Administrator""
+
+SystemAdministrator -- SynchronizationModule : configures
+
+@enduml
+```","@startuml
+component ""OfficeSystemInterface as ""Office System Interface""
+component SynchronizationModule as ""Synchronization Module""
+component Scheduler as ""Scheduler""
+component DataRepository as ""Data Repository""
+
+OfficeSystemInterface --* SynchronizationModule : uses
+SynchronizationModule --* Scheduler : triggered by
+SynchronizationModule --* DataRepository : updates
+Scheduler --* SynchronizationModule : triggers
+DataRepository --* OfficeSystemInterface : reflects
+
+actor SystemAdministrator"" as ""System Administrator""
+
+SystemAdministrator -- SynchronizationModule : configures
+
+@enduml"
+nfr,The product shall be available for use 24 hours per day  365 days  per year,modification,soon,customer,2,3,4,low,"User story:
+As a system administrator, I want the product to be available 24 hours a day, 365 days a year, so that users can access it at any time without interruption.
+
+Components:
+- Load Balancer
+- Web Server
+- Database Server
+- Backup and Recovery System
+- Monitoring and Alert System
+
+PlantUML:
+```plantuml
+@startuml
+component Load_Balancer as ""Load Balancer""
+component Web_Server as ""Web Server""
+component Database_Server as ""Database Server""
+component Backup_and_Recovery_System as ""Backup and Recovery System""
+component Monitoring_and_Alert_System as ""Monitoring and Alert System""
+
+Load_Balancer --* Web_Server
+Web_Server --* Database_Server
+Database_Server --* Backup_and_Recovery_System
+Load_Balancer -- Monitoring_and_Alert_System
+Web_Server -- Monitoring_and_Alert_System
+Database_Server -- Monitoring_and_Alert_System
+Backup_and_Recovery_System -- Monitoring_and_Alert_System
+
+actor System_Administrator as ""System Administrator""
+System_Administrator -- Load_Balancer
+System_Administrator -- Monitoring_and_Alert_System
+
+actor User as ""User""
+User -- Load_Balancer
+
+@enduml
+```","@startuml
+component ""Load_Balancer as ""Load Balancer""
+component Web_Server as ""Web Server""
+component Database_Server as ""Database Server""
+component Backup_and_Recovery_System as ""Backup and Recovery System""
+component Monitoring_and_Alert_System as ""Monitoring and Alert System""
+
+Load_Balancer --* Web_Server
+Web_Server --* Database_Server
+Database_Server --* Backup_and_Recovery_System
+Load_Balancer -- Monitoring_and_Alert_System
+Web_Server -- Monitoring_and_Alert_System
+Database_Server -- Monitoring_and_Alert_System
+Backup_and_Recovery_System -- Monitoring_and_Alert_System
+
+actor System_Administrator as ""System Administrator""
+System_Administrator -- Load_Balancer
+System_Administrator -- Monitoring_and_Alert_System
+
+actor User"" as ""User""
+User -- Load_Balancer
+
+@enduml"
+nfr,Out of 1000 accesses to the system  the system is available 999 times,modification,later,customer,1,3,4,low,"User story:
+As a System Administrator, I want the system to be highly available so that it can handle a large volume of accesses without significant downtime.
+
+Components:
+- Load Balancer
+- Application Server Cluster
+- Database Cluster
+- Monitoring System
+- Failover Mechanism
+
+PlantUML:
+```plantuml
+@startuml
+component Load_Balancer as ""Load Balancer""
+component Application_Server_Cluster as ""Application Server Cluster""
+component Database_Cluster as ""Database Cluster""
+component Monitoring_System as ""Monitoring System""
+component Failover_Mechanism as ""Failover Mechanism""
+
+Load_Balancer --* Application_Server_Cluster : Distributes incoming traffic
+Application_Server_Cluster --* Database_Cluster : Retrieves and updates data
+Monitoring_System --* Application_Server_Cluster : Monitors application servers
+Monitoring_System --* Database_Cluster : Monitors database
+Failover_Mechanism --* Application_Server_Cluster : Automatically fails over in case of failure
+Failover_Mechanism --* Database_Cluster : Automatically fails over in case of failure
+
+actor System_Administrator as ""System Administrator""
+System_Administrator -- Load_Balancer : Configures and monitors
+
+@enduml
+```","@startuml
+component ""Load_Balancer as ""Load Balancer""
+component Application_Server_Cluster as ""Application Server Cluster""
+component Database_Cluster as ""Database Cluster""
+component Monitoring_System as ""Monitoring System""
+component Failover_Mechanism as ""Failover Mechanism""
+
+Load_Balancer --* Application_Server_Cluster : Distributes incoming traffic
+Application_Server_Cluster --* Database_Cluster : Retrieves and updates data
+Monitoring_System --* Application_Server_Cluster : Monitors application servers
+Monitoring_System --* Database_Cluster : Monitors database
+Failover_Mechanism --* Application_Server_Cluster : Automatically fails over in case of failure
+Failover_Mechanism --* Database_Cluster : Automatically fails over in case of failure
+
+actor System_Administrator"" as ""System Administrator""
+System_Administrator -- Load_Balancer : Configures and monitors
+
+@enduml"
+nfr,The product shall operate in offline mode whenever internet connection is unavailable,modification,later,customer,0,2,3,low,"User story:
+As a user, I want to access the product's functionality even when the internet connection is unavailable so that I can continue using the product without interruption.
+
+Components:
+- Offline Mode Module
+- Internet Connection Detector
+- Local Data Storage
+- Synchronization Module
+- User Interface
+
+PlantUML:
+```plantuml
+@startuml
+component OfflineModeModule as ""Offline Mode Module""
+component InternetConnectionDetector as ""Internet Connection Detector""
+component LocalDataStorage as ""Local Data Storage""
+component SynchronizationModule as ""Synchronization Module""
+component UserInterface as ""User Interface""
+
+UserInterface -- OfflineModeModule
+OfflineModeModule -- InternetConnectionDetector
+InternetConnectionDetector -- LocalDataStorage
+OfflineModeModule -- LocalDataStorage
+SynchronizationModule -- LocalDataStorage
+SynchronizationModule -- InternetConnectionDetector
+
+user ""User"" as User
+User -- UserInterface
+
+@enduml
+```
+Note: The component diagram shows the relationships between the different components involved in enabling the product to operate in offline mode. The Offline Mode Module is the core component that interacts with the Internet Connection Detector, Local Data Storage, and Synchronization Module to provide offline functionality. The User Interface interacts with the Offline Mode Module to provide the user with access to the product's functionality. The Synchronization Module is responsible for synchronizing data when the internet connection becomes available.","@startuml
+component ""OfflineModeModule as ""Offline Mode Module""
+component InternetConnectionDetector as ""Internet Connection Detector""
+component LocalDataStorage as ""Local Data Storage""
+component SynchronizationModule as ""Synchronization Module""
+component UserInterface as ""User Interface""
+
+UserInterface -- OfflineModeModule
+OfflineModeModule -- InternetConnectionDetector
+InternetConnectionDetector -- LocalDataStorage
+OfflineModeModule -- LocalDataStorage
+SynchronizationModule -- LocalDataStorage
+SynchronizationModule -- InternetConnectionDetector
+
+user ""User"""" as User
+User -- UserInterface
+
+@enduml"
+nfr,The product shall allow the user to view previously downloaded search results  CMA reports  and appointments,modification,soon,organization,1,3,4,low,"User story:
+As a user, I want to view previously downloaded search results, CMA reports, and appointments so that I can access and review my past searches and appointments without having to repeat the search process.
+
+Components:
+- Search Results Repository
+- CMA Reports Repository
+- Appointments Repository
+- Data Storage Module
+- User Interface Module
+- Search Results Viewer
+- CMA Reports Viewer
+- Appointments Viewer
+
+PlantUML:
+```plantuml
+@startuml
+component Search_Results_Repository as ""Search Results Repository""
+component CMA_Reports_Repository as ""CMA Reports Repository""
+component Appointments_Repository as ""Appointments Repository""
+component Data_Storage_Module as ""Data Storage Module""
+component User_Interface_Module as ""User Interface Module""
+component Search_Results_Viewer as ""Search Results Viewer""
+component CMA_Reports_Viewer as ""CMA Reports Viewer""
+component Appointments_Viewer as ""Appointments Viewer""
+
+actor User as ""User""
+
+User --> User_Interface_Module
+User_Interface_Module --> Search_Results_Viewer
+User_Interface_Module --> CMA_Reports_Viewer
+User_Interface_Module --> Appointments_Viewer
+
+Search_Results_Viewer --> Search_Results_Repository
+CMA_Reports_Viewer --> CMA_Reports_Repository
+Appointments_Viewer --> Appointments_Repository
+
+Search_Results_Repository --> Data_Storage_Module
+CMA_Reports_Repository --> Data_Storage_Module
+Appointments_Repository --> Data_Storage_Module
+
+@enduml
+```","@startuml
+component ""Search_Results_Repository as ""Search Results Repository""
+component CMA_Reports_Repository as ""CMA Reports Repository""
+component Appointments_Repository as ""Appointments Repository""
+component Data_Storage_Module as ""Data Storage Module""
+component User_Interface_Module as ""User Interface Module""
+component Search_Results_Viewer as ""Search Results Viewer""
+component CMA_Reports_Viewer as ""CMA Reports Viewer""
+component Appointments_Viewer as ""Appointments Viewer""
+
+actor User"" as ""User""
+
+User --> User_Interface_Module
+User_Interface_Module --> Search_Results_Viewer
+User_Interface_Module --> CMA_Reports_Viewer
+User_Interface_Module --> Appointments_Viewer
+
+Search_Results_Viewer --> Search_Results_Repository
+CMA_Reports_Viewer --> CMA_Reports_Repository
+Appointments_Viewer --> Appointments_Repository
+
+Search_Results_Repository --> Data_Storage_Module
+CMA_Reports_Repository --> Data_Storage_Module
+Appointments_Repository --> Data_Storage_Module
+
+@enduml"
+nfr,The product shall retain user preferences in the event of a failure,modification,later,customer,1,4,8,low,"User story:
+As a system administrator, I want the system to retain user preferences in the event of a failure so that user experience is maintained and data is not lost.
+
+Components:
+- User Preference Manager
+- Data Storage Module
+- Failure Recovery Module
+- User Interface
+
+PlantUML:
+```plantuml
+@startuml
+component UserPreferenceManager as ""User Preference Manager""
+component DataStorageModule as ""Data Storage Module""
+component FailureRecoveryModule as ""Failure Recovery Module""
+component UserInterface as ""User Interface""
+actor SystemAdministrator as ""System Administrator""
+actor User as ""User""
+
+UserInterface --* User
+UserPreferenceManager --* DataStorageModule
+FailureRecoveryModule --* DataStorageModule
+UserPreferenceManager --* FailureRecoveryModule
+SystemAdministrator --* UserPreferenceManager
+
+@enduml
+```","@startuml
+component ""UserPreferenceManager as ""User Preference Manager""
+component DataStorageModule as ""Data Storage Module""
+component FailureRecoveryModule as ""Failure Recovery Module""
+component UserInterface as ""User Interface""
+actor SystemAdministrator as ""System Administrator""
+actor User"" as ""User""
+
+UserInterface --* User
+UserPreferenceManager --* DataStorageModule
+FailureRecoveryModule --* DataStorageModule
+UserPreferenceManager --* FailureRecoveryModule
+SystemAdministrator --* UserPreferenceManager
+
+@enduml"
+nfr,100% of saved user preferences shall be restored when system comes back online,modification,soon,customer,1,4,7,low,"User story:
+As a system administrator, I want the system to restore 100% of saved user preferences when it comes back online so that users can seamlessly resume their work without losing their personalized settings.
+
+Components:
+- User Preferences Database
+- System Restore Module
+- User Interface
+- Preferences Loader
+- System Monitor
+
+PlantUML:
+```plantuml
+@startuml
+component UserPreferencesDatabase as ""User Preferences Database""
+component SystemRestoreModule as ""System Restore Module""
+component UserInterface as ""User Interface""
+component PreferencesLoader as ""Preferences Loader""
+component SystemMonitor as ""System Monitor""
+
+UserInterface --* UserPreferencesDatabase : saves preferences
+SystemRestoreModule --* UserPreferencesDatabase : restores preferences
+SystemMonitor --* SystemRestoreModule : triggers restore
+PreferencesLoader --* UserPreferencesDatabase : loads preferences
+UserInterface --* PreferencesLoader : uses loaded preferences
+
+@enduml
+```","@startuml
+component ""UserPreferencesDatabase as ""User Preferences Database""
+component SystemRestoreModule as ""System Restore Module""
+component UserInterface as ""User Interface""
+component PreferencesLoader as ""Preferences Loader""
+component SystemMonitor"" as ""System Monitor""
+
+UserInterface --* UserPreferencesDatabase : saves preferences
+SystemRestoreModule --* UserPreferencesDatabase : restores preferences
+SystemMonitor --* SystemRestoreModule : triggers restore
+PreferencesLoader --* UserPreferencesDatabase : loads preferences
+UserInterface --* PreferencesLoader : uses loaded preferences
+
+@enduml"
+nfr,The product shall be able to support multiple remote users,addition,soon,project vision,2,2,3,low,"User story:
+As a system administrator, I want to support multiple remote users so that the product can be accessed and utilized by a distributed team.
+
+Components:
+- Load Balancer
+- Authentication Server
+- Application Server
+- Database Server
+- Network Firewall
+
+PlantUML:
+```plantuml
+@startuml
+component Load_Balancer as ""Load Balancer""
+component Authentication_Server as ""Authentication Server""
+component Application_Server as ""Application Server""
+component Database_Server as ""Database Server""
+component Network_Firewall as ""Network Firewall""
+
+actor Remote_User as ""Remote User""
+
+Remote_User -->> Load_Balancer
+Load_Balancer -->> Authentication_Server
+Load_Balancer -->> Application_Server
+Authentication_Server -->> Database_Server
+Application_Server -->> Database_Server
+Network_Firewall -->> Load_Balancer
+Network_Firewall -->> Application_Server
+@enduml
+```","@startuml
+component ""Load_Balancer as ""Load Balancer""
+component Authentication_Server as ""Authentication Server""
+component Application_Server as ""Application Server""
+component Database_Server as ""Database Server""
+component Network_Firewall as ""Network Firewall""
+
+actor Remote_User"" as ""Remote User""
+
+Remote_User -->> Load_Balancer
+Load_Balancer -->> Authentication_Server
+Load_Balancer -->> Application_Server
+Authentication_Server -->> Database_Server
+Application_Server -->> Database_Server
+Network_Firewall -->> Load_Balancer
+Network_Firewall -->> Application_Server
+@enduml"
+nfr,The product shall be able support 1000 simultaneous users,addition,soon,project vision,2,3,3,low,"User story:
+As a system administrator, I want the system to support 1000 simultaneous users so that the product can handle a large number of concurrent users without performance degradation.
+
+Components:
+- Load Balancer
+- Application Server
+- Database Server
+- Cache Server
+- Network Infrastructure
+
+PlantUML:
+```plantuml
+@startuml
+component Load_Balancer as ""Load Balancer""
+component Application_Server as ""Application Server""
+component Database_Server as ""Database Server""
+component Cache_Server as ""Cache Server""
+component Network_Infrastructure as ""Network Infrastructure""
+
+User[""Simultaneous Users (1000)""] ..> Load_Balancer : uses
+
+Load_Balancer ..> Application_Server : distributes
+Application_Server ..> Database_Server : queries
+Application_Server ..> Cache_Server : retrieves
+Cache_Server ..> Database_Server : updates
+Network_Infrastructure ..> Load_Balancer : connects
+Network_Infrastructure ..> Application_Server : connects
+Network_Infrastructure ..> Database_Server : connects
+Network_Infrastructure ..> Cache_Server : connects
+
+@enduml
+```","@startuml
+component ""Load_Balancer as ""Load Balancer""
+component Application_Server as ""Application Server""
+component Database_Server as ""Database Server""
+component Cache_Server as ""Cache Server""
+component Network_Infrastructure"" as ""Network Infrastructure""
+
+User[""Simultaneous Users (1000)""] ..> Load_Balancer : uses
+
+Load_Balancer ..> Application_Server : distributes
+Application_Server ..> Database_Server : queries
+Application_Server ..> Cache_Server : retrieves
+Cache_Server ..> Database_Server : updates
+Network_Infrastructure ..> Load_Balancer : connects
+Network_Infrastructure ..> Application_Server : connects
+Network_Infrastructure ..> Database_Server : connects
+Network_Infrastructure ..> Cache_Server : connects
+
+@enduml"
+nfr,The product shall be capable of handling the existing 1000 users. This number is expected to grow 5 times within the next year,modification,soon,customer,3,4,6,low,"User story:
+As a system administrator, I want the system to handle a growing number of users, currently 1000 and expected to increase to 5000 within the next year, so that the system remains performant and reliable under the increased load.
+
+Components:
+- Load Balancer
+- Application Server
+- Database Server
+- Scalability Manager
+- Monitoring Tool
+
+PlantUML:
+```plantuml
+@startuml
+component Load_Balancer as ""Load Balancer""
+component Application_Server as ""Application Server""
+component Database_Server as ""Database Server""
+component Scalability_Manager as ""Scalability Manager""
+component Monitoring_Tool as ""Monitoring Tool""
+
+actor System_Administrator as ""System Administrator""
+actor Users as ""Users""
+
+System_Administrator -- Load_Balancer
+Users -- Load_Balancer
+Load_Balancer -- Application_Server
+Application_Server -- Database_Server
+Scalability_Manager -- Application_Server
+Scalability_Manager -- Database_Server
+Monitoring_Tool -- Application_Server
+Monitoring_Tool -- Database_Server
+Monitoring_Tool -- Load_Balancer
+
+@enduml
+```","@startuml
+component ""Load_Balancer as ""Load Balancer""
+component Application_Server as ""Application Server""
+component Database_Server as ""Database Server""
+component Scalability_Manager as ""Scalability Manager""
+component Monitoring_Tool as ""Monitoring Tool""
+
+actor System_Administrator as ""System Administrator""
+actor Users"" as ""Users""
+
+System_Administrator -- Load_Balancer
+Users -- Load_Balancer
+Load_Balancer -- Application_Server
+Application_Server -- Database_Server
+Scalability_Manager -- Application_Server
+Scalability_Manager -- Database_Server
+Monitoring_Tool -- Application_Server
+Monitoring_Tool -- Database_Server
+Monitoring_Tool -- Load_Balancer
+
+@enduml"
+nfr,The product shall be installed by an untrained realtor   without recourse to separately-printed instructions,modification,later,customer,3,5,10,low,"User story:
+As an untrained realtor, I want to install the product without needing separately-printed instructions so that I can easily and quickly set up the system.
+
+Components:
+- Installer Module: responsible for guiding the user through the installation process
+- User Interface Module: provides an intuitive and user-friendly interface for the realtor to interact with during installation
+- Help System Module: offers contextual help and guidance throughout the installation process, eliminating the need for separate instructions
+- Automation Module: automates as much of the installation process as possible to reduce the complexity and workload on the realtor
+
+PlantUML:
+```plantuml
+@startuml
+component InstallerModule as ""Installer Module""
+component UserInterfaceModule as ""User Interface Module""
+component HelpSystemModule as ""Help System Module""
+component AutomationModule as ""Automation Module""
+
+actor Realtor as ""Untrained Realtor""
+
+Realtor --> UserInterfaceModule
+UserInterfaceModule --> InstallerModule
+InstallerModule --> AutomationModule
+AutomationModule --> HelpSystemModule
+HelpSystemModule --> UserInterfaceModule
+
+@enduml
+```","@startuml
+component ""InstallerModule as ""Installer Module""
+component UserInterfaceModule as ""User Interface Module""
+component HelpSystemModule as ""Help System Module""
+component AutomationModule as ""Automation Module""
+
+actor Realtor"" as ""Untrained Realtor""
+
+Realtor --> UserInterfaceModule
+UserInterfaceModule --> InstallerModule
+InstallerModule --> AutomationModule
+AutomationModule --> HelpSystemModule
+HelpSystemModule --> UserInterfaceModule
+
+@enduml"
+nfr,90% of untrained realtors shall be able to install the product on their device without printed instructions,modification,later,market,3,5,9,low,"User story:
+As a product developer, I want to design an installation process for the product that is intuitive and easy to follow, so that 90% of untrained realtors can install it on their device without printed instructions.
+
+Components:
+- Installation Wizard
+- User Interface (UI) Module
+- Error Handling and Feedback Module
+- Device Compatibility Module
+- Documentation Module (for optional online help)
+
+PlantUML:
+```plantuml
+@startuml
+component Installation Wizard as ""Installation Wizard""
+component UI as ""User Interface (UI) Module""
+component ErrorHandling as ""Error Handling and Feedback Module""
+component DeviceCompatibility as ""Device Compatibility Module""
+component Documentation as ""Documentation Module""
+
+actor Realtor as ""Untrained Realtor""
+
+Realtor --> Installation Wizard : uses
+Installation Wizard --* UI : interacts with
+Installation Wizard --* ErrorHandling : uses
+Installation Wizard --* DeviceCompatibility : checks
+Installation Wizard --* Documentation : links to (optional)
+
+@enduml
+```","@startuml
+component ""Installation Wizard as ""Installation Wizard""
+component UI as ""User Interface (UI) Module""
+component ErrorHandling as ""Error Handling and Feedback Module""
+component DeviceCompatibility as ""Device Compatibility Module""
+component Documentation as ""Documentation Module""
+
+actor Realtor"" as ""Untrained Realtor""
+
+Realtor --> Installation Wizard : uses
+Installation Wizard --* UI : interacts with
+Installation Wizard --* ErrorHandling : uses
+Installation Wizard --* DeviceCompatibility : checks
+Installation Wizard --* Documentation : links to (optional)
+
+@enduml"
+nfr,The product is expected to run on Windows CE and Palm operating systems,modification,soon,customer,1,2,3,low,"User story:
+As a developer, I want to ensure the product is compatible with Windows CE and Palm operating systems so that it can run smoothly on these platforms.
+
+Components:
+- Operating System Abstraction Layer (OSAL)
+- Windows CE Compatibility Module
+- Palm OS Compatibility Module
+- Platform-Agnostic Application Code
+
+PlantUML:
+```plantuml
+@startuml
+component OSAL [Operating System Abstraction Layer]
+component WindowsCE [Windows CE Compatibility Module]
+component PalmOS [Palm OS Compatibility Module]
+component AppCode [Platform-Agnostic Application Code]
+
+user ""Developer"" as dev
+user ""End User"" as user
+
+dev -- OSAL
+user -- AppCode
+
+OSAL -- WindowsCE : uses
+OSAL -- PalmOS : uses
+AppCode -- OSAL : uses
+
+@enduml
+```
+Note:","@startuml
+component ""OSAL [Operating System Abstraction Layer]
+component WindowsCE [Windows CE Compatibility Module]
+component PalmOS [Palm OS Compatibility Module]
+component AppCode [Platform-Agnostic Application Code]
+
+user ""Developer"" as dev
+user ""End User"""" as user
+
+dev -- OSAL
+user -- AppCode
+
+OSAL -- WindowsCE : uses
+OSAL -- PalmOS : uses
+AppCode -- OSAL : uses
+
+@enduml"
+nfr,Only registered realtors shall be able to access the system,modification,later,organization,1,5,9,low,"User story:
+As a system administrator, I want to restrict access to the system so that only registered realtors can use it.
+
+Components:
+- Authentication Module
+- Authorization Module
+- Realtor Registration Module
+- System Access Module
+- User Interface
+
+PlantUML:
+```plantuml
+@startuml
+component AuthenticationModule as ""Authentication Module""
+component AuthorizationModule as ""Authorization Module""
+component RealtorRegistrationModule as ""Realtor Registration Module""
+component SystemAccessModule as ""System Access Module""
+component UserInterface as ""User Interface""
+
+actor RegisteredRealtor as ""Registered Realtor""
+actor UnregisteredRealtor as ""Unregistered Realtor""
+
+RegisteredRealtor --> UserInterface
+UnregisteredRealtor --> UserInterface
+
+UserInterface --> AuthenticationModule
+AuthenticationModule --> AuthorizationModule
+AuthorizationModule --> SystemAccessModule
+RealtorRegistrationModule --> AuthenticationModule
+
+@enduml
+```
+Note: The component diagram shows the different components involved in restricting access to the system. The `RegisteredRealtor` and `UnregisteredRealtor` actors interact with the `UserInterface`, which then communicates with the `AuthenticationModule`. The `AuthenticationModule` checks the user's credentials and then interacts with the `AuthorizationModule` to determine if the user is a registered realtor. If authorized, the `SystemAccessModule` grants access to the system. The `RealtorRegistrationModule` is used to register new realtors, which then updates the `AuthenticationModule` with the new user's information.","@startuml
+component ""AuthenticationModule as ""Authentication Module""
+component AuthorizationModule as ""Authorization Module""
+component RealtorRegistrationModule as ""Realtor Registration Module""
+component SystemAccessModule as ""System Access Module""
+component UserInterface as ""User Interface""
+
+actor RegisteredRealtor as ""Registered Realtor""
+actor UnregisteredRealtor"" as ""Unregistered Realtor""
+
+RegisteredRealtor --> UserInterface
+UnregisteredRealtor --> UserInterface
+
+UserInterface --> AuthenticationModule
+AuthenticationModule --> AuthorizationModule
+AuthorizationModule --> SystemAccessModule
+RealtorRegistrationModule --> AuthenticationModule
+
+@enduml"
+nfr,Every user of the system shall be authenticated and authorized,modification,soon,organization,1,3,3,low,"User story:
+As a system administrator, I want to ensure that every user of the system is authenticated and authorized so that the system's data and functionality are protected from unauthorized access.
+
+Components:
+- Authentication Module
+- Authorization Module
+- User Database
+- Access Control Module
+- System Interface
+
+PlantUML:
+```plantuml
+@startuml
+component AuthenticationModule as ""Authentication Module""
+component AuthorizationModule as ""Authorization Module""
+component UserDatabase as ""User Database""
+component AccessControlModule as ""Access Control Module""
+component SystemInterface as ""System Interface""
+
+actor User as ""User""
+
+User ---> AuthenticationModule : requests access
+AuthenticationModule ---> UserDatabase : verifies credentials
+UserDatabase ---> AuthenticationModule : returns verification result
+AuthenticationModule ---> AuthorizationModule : requests authorization
+AuthorizationModule ---> AccessControlModule : checks permissions
+AccessControlModule ---> SystemInterface : grants or denies access
+SystemInterface ---> User : provides access to system
+
+@enduml
+```","@startuml
+component ""AuthenticationModule as ""Authentication Module""
+component AuthorizationModule as ""Authorization Module""
+component UserDatabase as ""User Database""
+component AccessControlModule as ""Access Control Module""
+component SystemInterface as ""System Interface""
+
+actor User"" as ""User""
+
+User ---> AuthenticationModule : requests access
+AuthenticationModule ---> UserDatabase : verifies credentials
+UserDatabase ---> AuthenticationModule : returns verification result
+AuthenticationModule ---> AuthorizationModule : requests authorization
+AuthorizationModule ---> AccessControlModule : checks permissions
+AccessControlModule ---> SystemInterface : grants or denies access
+SystemInterface ---> User : provides access to system
+
+@enduml"
+nfr,The product shall prevent its data from incorrect data being introduced,modification,later,developer knowledge,1,4,8,low,"User story:
+As a system administrator, I want the system to validate and verify all data inputs so that incorrect data is prevented from being introduced into the product.
+
+Components:
+- Data Validation Module
+- Data Verification Module
+- Data Input Module
+- Error Handling Module
+- Data Storage Module
+
+PlantUML:
+```plantuml
+@startuml
+component DataValidationModule as ""Data Validation Module""
+component DataVerificationModule as ""Data Verification Module""
+component DataInputModule as ""Data Input Module""
+component ErrorHandlingModule as ""Error Handling Module""
+component DataStorageModule as ""Data Storage Module""
+component SystemAdministrator as ""System Administrator""
+
+DataInputModule --> DataValidationModule : Validate Data
+DataValidationModule --> DataVerificationModule : Verify Data
+DataVerificationModule --> DataStorageModule : Store Valid Data
+DataInputModule --> ErrorHandlingModule : Handle Invalid Data
+SystemAdministrator --> DataInputModule : Input Data
+DataStorageModule --> SystemAdministrator : Retrieve Valid Data
+
+@enduml
+```","@startuml
+component ""DataValidationModule as ""Data Validation Module""
+component DataVerificationModule as ""Data Verification Module""
+component DataInputModule as ""Data Input Module""
+component ErrorHandlingModule as ""Error Handling Module""
+component DataStorageModule as ""Data Storage Module""
+component SystemAdministrator"" as ""System Administrator""
+
+DataInputModule --> DataValidationModule : Validate Data
+DataValidationModule --> DataVerificationModule : Verify Data
+DataVerificationModule --> DataStorageModule : Store Valid Data
+DataInputModule --> ErrorHandlingModule : Handle Invalid Data
+SystemAdministrator --> DataInputModule : Input Data
+DataStorageModule --> SystemAdministrator : Retrieve Valid Data
+
+@enduml"
+fr,The system shall allow a real estate agent to query MLS information,modification,soon,market,2,2,2,low,"User story:
+As a real estate agent, I want to query MLS information so that I can provide accurate and up-to-date property listings to my clients.
+
+Components:
+- MLS Data Repository: a database or storage system that contains the MLS information
+- Query Engine: a software module that allows real estate agents to search and retrieve MLS data
+- User Interface: a web or mobile application that provides an interface for real estate agents to input queries and view results
+- Authentication Module: a component that verifies the identity of real estate agents and grants access to the system
+- Data Integration Module: a component that integrates the MLS data with other relevant data sources
+
+PlantUML:
+```plantuml
+@startuml
+left to right direction
+
+actor ""Real Estate Agent"" as agent
+
+component ""User Interface"" as ui
+component ""Query Engine"" as query
+component ""MLS Data Repository"" as mls
+component ""Authentication Module"" as auth
+component ""Data Integration Module"" as integration
+
+agent ---> ui
+ui ---> auth
+auth ---> query
+query ---> mls
+query ---> integration
+integration ---> mls
+
+@enduml
+```","@startuml
+left to right direction
+
+actor ""Real Estate Agent"" as agent
+
+component ""User Interface"" as ui
+component ""Query Engine"" as query
+component ""MLS Data Repository"" as mls
+component ""Authentication Module"" as auth
+component ""Data Integration Module"" as integration
+
+agent ---> ui
+ui ---> auth
+auth ---> query
+query ---> mls
+query ---> integration
+integration ---> mls
+
+@enduml"
+fr,The user shall be able to get driving directions to a selected property,modification,soon,customer,1,3,4,low,"User story:
+As a user, I want to get driving directions to a selected property so that I can navigate to the property easily.
+
+Components:
+- Property Selection Module
+- Mapping Service Integration
+- Direction Calculation Algorithm
+- User Interface for Displaying Directions
+
+PlantUML:
+```plantuml
+@startuml
+left to right direction
+
+actor User as ""User""
+
+component PropertySelection as ""Property Selection""
+component MappingService as ""Mapping Service""
+component DirectionCalculation as ""Direction Calculation""
+component UserInterface as ""User Interface""
+
+User --> PropertySelection : selects property
+PropertySelection --> MappingService : requests directions
+MappingService --> DirectionCalculation : calculates route
+DirectionCalculation --> UserInterface : displays directions
+UserInterface --> User : shows directions
+
+@enduml
+```","@startuml
+left to right direction
+
+actor User as ""User""
+
+component PropertySelection as ""Property Selection""
+component MappingService as ""Mapping Service""
+component DirectionCalculation as ""Direction Calculation""
+component UserInterface as ""User Interface""
+
+User --> PropertySelection : selects property
+PropertySelection --> MappingService : requests directions
+MappingService --> DirectionCalculation : calculates route
+DirectionCalculation --> UserInterface : displays directions
+UserInterface --> User : shows directions
+
+@enduml"
+fr,The user shall be able to download appointments and contact information for clients,modification,soon,customer,1,2,3,low,"User story:
+As a user, I want to download appointments and contact information for clients so that I can access and manage client data offline.
+
+Components:
+- Client Data Repository: a database or storage system to store client information and appointments
+- Download Manager: a module responsible for handling download requests and generating downloadable files
+- User Interface: a web or mobile application that allows users to interact with the system and initiate downloads
+- Authentication Module: a component that handles user authentication and authorization to ensure only authorized users can access client data
+- Data Export Module: a module that formats and exports client data into a downloadable format (e.g., CSV, PDF)
+
+PlantUML:
+```plantuml
+@startuml
+left to right direction
+
+actor User as ""User""
+component ClientDataRepository as ""Client Data Repository""
+component DownloadManager as ""Download Manager""
+component UserInterface as ""User Interface""
+component AuthenticationModule as ""Authentication Module""
+component DataExportModule as ""Data Export Module""
+
+User --> UserInterface : uses
+UserInterface --> AuthenticationModule : uses
+AuthenticationModule --> ClientDataRepository : accesses
+UserInterface --> DownloadManager : uses
+DownloadManager --> DataExportModule : uses
+DataExportModule --> ClientDataRepository : reads
+DownloadManager --> UserInterface : provides downloadable file
+
+@enduml
+```","@startuml
+left to right direction
+
+actor User as ""User""
+component ClientDataRepository as ""Client Data Repository""
+component DownloadManager as ""Download Manager""
+component UserInterface as ""User Interface""
+component AuthenticationModule as ""Authentication Module""
+component DataExportModule as ""Data Export Module""
+
+User --> UserInterface : uses
+UserInterface --> AuthenticationModule : uses
+AuthenticationModule --> ClientDataRepository : accesses
+UserInterface --> DownloadManager : uses
+DownloadManager --> DataExportModule : uses
+DataExportModule --> ClientDataRepository : reads
+DownloadManager --> UserInterface : provides downloadable file
+
+@enduml"
+fr,The system shall display clear property images in the search results,modification,soon,customer,1,2,3,low,"User story:
+As a user, I want to view clear property images in the search results so that I can easily identify and evaluate the properties that match my search criteria.
+
+Components:
+- Image Repository: a module responsible for storing and managing property images
+- Search Results Module: a component that handles the display of search results, including property images
+- Image Processing Module: a component that optimizes and resizes images for clear display
+- User Interface: a module that renders the search results, including property images, to the user
+
+PlantUML:
+```plantuml
+@startuml
+left to right direction
+
+actor User as ""User""
+
+component ImageRepository as ""Image Repository""
+component SearchResultsModule as ""Search Results Module""
+component ImageProcessingModule as ""Image Processing Module""
+component UserInterface as ""User Interface""
+
+User --> UserInterface : searches for properties
+UserInterface --> SearchResultsModule : requests search results
+SearchResultsModule --> ImageRepository : retrieves property images
+ImageRepository --> ImageProcessingModule : sends images for processing
+ImageProcessingModule --> SearchResultsModule : returns optimized images
+SearchResultsModule --> UserInterface : sends search results with images
+UserInterface --> User : displays search results with clear property images
+
+@enduml
+```","@startuml
+left to right direction
+
+actor User as ""User""
+
+component ImageRepository as ""Image Repository""
+component SearchResultsModule as ""Search Results Module""
+component ImageProcessingModule as ""Image Processing Module""
+component UserInterface as ""User Interface""
+
+User --> UserInterface : searches for properties
+UserInterface --> SearchResultsModule : requests search results
+SearchResultsModule --> ImageRepository : retrieves property images
+ImageRepository --> ImageProcessingModule : sends images for processing
+ImageProcessingModule --> SearchResultsModule : returns optimized images
+SearchResultsModule --> UserInterface : sends search results with images
+UserInterface --> User : displays search results with clear property images
+
+@enduml"
+fr,The system shall update or create new property listings in the MLS,addition,soon,market,1,2,3,low,"User story:
+As a real estate agent, I want to update or create new property listings in the MLS so that I can manage my properties efficiently and make them visible to potential buyers.
+
+Components:
+- Property Listing Service: responsible for creating and updating property listings
+- MLS Integration Module: handles communication with the MLS system
+- User Interface: provides a platform for real estate agents to input property listing information
+- Data Storage: stores property listing data for future reference and updates
+
+PlantUML:
+```plantuml
+@startuml
+left to right direction
+
+actor ""Real Estate Agent"" as agent
+component ""User Interface"" as ui
+component ""Property Listing Service"" as pls
+component ""MLS Integration Module"" as mls
+component ""Data Storage"" as ds
+
+agent --> ui
+ui ---> pls: create/update property listing
+pls ---> mls: send property listing to MLS
+pls ---> ds: store property listing
+mls ---> ds: update stored property listing
+ds ---> pls: retrieve property listing
+
+@enduml
+```","@startuml
+left to right direction
+
+actor ""Real Estate Agent"" as agent
+component ""User Interface"" as ui
+component ""Property Listing Service"" as pls
+component ""MLS Integration Module"" as mls
+component ""Data Storage"" as ds
+
+agent --> ui
+ui ---> pls: create/update property listing
+pls ---> mls: send property listing to MLS
+pls ---> ds: store property listing
+mls ---> ds: update stored property listing
+ds ---> pls: retrieve property listing
+
+@enduml"
+fr,Realtor shall be able to generate a CMA report based on property criteria,modification,soon,market,1,2,3,low,"User story:
+As a realtor, I want to generate a Comparative Market Analysis (CMA) report based on specific property criteria so that I can provide accurate and informative reports to my clients.
+
+Components:
+- Property Criteria Input Module
+- Property Database
+- CMA Report Generation Module
+- Report Viewing Module
+- User Authentication Module
+
+PlantUML:
+```plantuml
+@startuml
+left to right direction
+
+actor Realtor as ""Realtor""
+
+component PropertyCriteriaInput as ""Property Criteria Input""
+component PropertyDatabase as ""Property Database""
+component CMAReportGeneration as ""CMA Report Generation""
+component ReportViewing as ""Report Viewing""
+component UserAuthentication as ""User Authentication""
+
+Realtor -- (Login)
+Realtor --> PropertyCriteriaInput : Input property criteria
+PropertyCriteriaInput --> PropertyDatabase : Retrieve relevant properties
+PropertyDatabase --> CMAReportGeneration : Provide property data
+CMAReportGeneration --> ReportViewing : Generate CMA report
+Realtor <--> ReportViewing : View CMA report
+UserAuthentication --* PropertyCriteriaInput : Secure input
+UserAuthentication --* ReportViewing : Secure viewing
+
+@enduml
+```","@startuml
+left to right direction
+
+actor Realtor as ""Realtor""
+
+component PropertyCriteriaInput as ""Property Criteria Input""
+component PropertyDatabase as ""Property Database""
+component CMAReportGeneration as ""CMA Report Generation""
+component ReportViewing as ""Report Viewing""
+component UserAuthentication as ""User Authentication""
+
+Realtor -- (Login)
+Realtor --> PropertyCriteriaInput : Input property criteria
+PropertyCriteriaInput --> PropertyDatabase : Retrieve relevant properties
+PropertyDatabase --> CMAReportGeneration : Provide property data
+CMAReportGeneration --> ReportViewing : Generate CMA report
+Realtor <--> ReportViewing : View CMA report
+UserAuthentication --* PropertyCriteriaInput : Secure input
+UserAuthentication --* ReportViewing : Secure viewing
+
+@enduml"
+fr,The system shall be able to call the seller or buyer to schedule an appointment,modification,soon,customer,3,4,5,low,"User story:
+As a system administrator, I want to be able to initiate a call to the seller or buyer to schedule an appointment so that the system can facilitate efficient communication and appointment setting between parties.
+
+Components:
+- Telephony Module: responsible for handling voice calls
+- Appointment Scheduler Module: manages appointment scheduling and notifications
+- User Management Module: stores and retrieves seller and buyer contact information
+- Integration Module: handles integration with external telephony services
+
+PlantUML:
+```plantuml
+@startuml
+left to right direction
+actor Seller as ""Seller""
+actor Buyer as ""Buyer""
+actor SystemAdministrator as ""System Administrator""
+
+component TelephonyModule as ""Telephony Module""
+component AppointmentSchedulerModule as ""Appointment Scheduler Module""
+component UserManagementModule as ""User Management Module""
+component IntegrationModule as ""Integration Module""
+
+SystemAdministrator -- (Initiate Call)
+SystemAdministrator ..> TelephonyModule : uses
+TelephonyModule ..> IntegrationModule : integrates with
+IntegrationModule ..> UserManagementModule : retrieves contact info
+UserManagementModule --* Seller : stores
+UserManagementModule --* Buyer : stores
+TelephonyModule --* Seller : calls
+TelephonyModule --* Buyer : calls
+AppointmentSchedulerModule --* Seller : schedules
+AppointmentSchedulerModule --* Buyer : schedules
+SystemAdministrator --* AppointmentSchedulerModule : manages
+
+@enduml
+```","@startuml
+left to right direction
+actor Seller as ""Seller""
+actor Buyer as ""Buyer""
+actor SystemAdministrator as ""System Administrator""
+
+component TelephonyModule as ""Telephony Module""
+component AppointmentSchedulerModule as ""Appointment Scheduler Module""
+component UserManagementModule as ""User Management Module""
+component IntegrationModule as ""Integration Module""
+
+SystemAdministrator -- (Initiate Call)
+SystemAdministrator ..> TelephonyModule : uses
+TelephonyModule ..> IntegrationModule : integrates with
+IntegrationModule ..> UserManagementModule : retrieves contact info
+UserManagementModule --* Seller : stores
+UserManagementModule --* Buyer : stores
+TelephonyModule --* Seller : calls
+TelephonyModule --* Buyer : calls
+AppointmentSchedulerModule --* Seller : schedules
+AppointmentSchedulerModule --* Buyer : schedules
+SystemAdministrator --* AppointmentSchedulerModule : manages
+
+@enduml"
+fr,The realtor shall be notified of new client appointments after automatic synchronization with office system,addition,soon,customer,1,2,3,low,"User story:
+As a realtor, I want to be notified of new client appointments after automatic synchronization with the office system so that I can prepare and manage my schedule effectively.
+
+Components:
+- Appointment Synchronization Module
+- Office System Integration API
+- Realtor Notification System
+- Appointment Database
+
+PlantUML:
+```plantuml
+@startuml
+left to right direction
+
+actor Realtor as ""Realtor""
+actor OfficeSystem as ""Office System""
+
+component AppointmentSynchronization as ""Appointment Synchronization Module""
+component OfficeSystemAPI as ""Office System Integration API""
+component RealtorNotification as ""Realtor Notification System""
+component AppointmentDB as ""Appointment Database""
+
+Realtor -->(AppointmentSynchronization)
+OfficeSystem -->(OfficeSystemAPI)
+AppointmentSynchronization -->(OfficeSystemAPI)
+OfficeSystemAPI -->(AppointmentDB)
+AppointmentSynchronization -->(RealtorNotification)
+RealtorNotification -->(Realtor)
+
+@enduml
+```","@startuml
+left to right direction
+
+actor Realtor as ""Realtor""
+actor OfficeSystem as ""Office System""
+
+component AppointmentSynchronization as ""Appointment Synchronization Module""
+component OfficeSystemAPI as ""Office System Integration API""
+component RealtorNotification as ""Realtor Notification System""
+component AppointmentDB as ""Appointment Database""
+
+Realtor -->(AppointmentSynchronization)
+OfficeSystem -->(OfficeSystemAPI)
+AppointmentSynchronization -->(OfficeSystemAPI)
+OfficeSystemAPI -->(AppointmentDB)
+AppointmentSynchronization -->(RealtorNotification)
+RealtorNotification -->(Realtor)
+
+@enduml"
+fr,The realtor shall be able to retrieve a map showing property locations for a specified area,modification,soon,organization,1,3,4,low,"User story:
+As a realtor, I want to retrieve a map showing property locations for a specified area so that I can visualize and understand the distribution of properties in that area.
+
+Components:
+- Map Viewer Component: responsible for displaying the map and property locations
+- Property Location Service: responsible for retrieving property locations for a specified area
+- Area Selection Component: responsible for allowing the user to select a specified area
+- Map Data Repository: responsible for storing and managing map data
+- Property Data Repository: responsible for storing and managing property data
+
+PlantUML:
+```plantuml
+@startuml
+left to right direction
+
+actor Realtor as ""Realtor""
+
+component MapViewer as ""Map Viewer Component""
+component PropertyLocationService as ""Property Location Service""
+component AreaSelection as ""Area Selection Component""
+component MapDataRepository as ""Map Data Repository""
+component PropertyDataRepository as ""Property Data Repository""
+
+Realtor -- (Use Case: Retrieve Map)
+(Use Case: Retrieve Map) ..> MapViewer : uses
+MapViewer --* PropertyLocationService : requests
+PropertyLocationService --* AreaSelection : uses
+PropertyLocationService --* MapDataRepository : retrieves
+PropertyLocationService --* PropertyDataRepository : retrieves
+AreaSelection --* MapDataRepository : uses
+
+@enduml
+```","@startuml
+left to right direction
+
+actor Realtor as ""Realtor""
+
+component MapViewer as ""Map Viewer Component""
+component PropertyLocationService as ""Property Location Service""
+component AreaSelection as ""Area Selection Component""
+component MapDataRepository as ""Map Data Repository""
+component PropertyDataRepository as ""Property Data Repository""
+
+Realtor -- (Use Case: Retrieve Map)
+(Use Case: Retrieve Map) ..> MapViewer : uses
+MapViewer --* PropertyLocationService : requests
+PropertyLocationService --* AreaSelection : uses
+PropertyLocationService --* MapDataRepository : retrieves
+PropertyLocationService --* PropertyDataRepository : retrieves
+AreaSelection --* MapDataRepository : uses
+
+@enduml"
+fr,The system shall notify the realtor when a seller or buyer responds to an appointment request,modification,later,customer,3,5,9,low,"User story:
+As a realtor, I want to be notified when a seller or buyer responds to an appointment request so that I can stay updated on the status of my appointments and take necessary actions.
+
+Components:
+- Appointment Request Module
+- Notification Module
+- User Management Module (for seller, buyer, and realtor profiles)
+- Response Management Module (to handle responses from sellers and buyers)
+
+PlantUML:
+```plantuml
+@startuml
+left to right direction
+
+actor Seller as ""Seller""
+actor Buyer as ""Buyer""
+actor Realtor as ""Realtor""
+
+component AppointmentRequest as ""Appointment Request Module""
+component Notification as ""Notification Module""
+component UserManager as ""User Management Module""
+component ResponseManager as ""Response Management Module""
+
+Realtor -->(AppointmentRequest)
+Seller -->(ResponseManager)
+Buyer -->(ResponseManager)
+ResponseManager -->(AppointmentRequest)
+AppointmentRequest -->(Notification)
+Notification -->(Realtor)
+
+@enduml
+```","@startuml
+left to right direction
+
+actor Seller as ""Seller""
+actor Buyer as ""Buyer""
+actor Realtor as ""Realtor""
+
+component AppointmentRequest as ""Appointment Request Module""
+component Notification as ""Notification Module""
+component UserManager as ""User Management Module""
+component ResponseManager as ""Response Management Module""
+
+Realtor -->(AppointmentRequest)
+Seller -->(ResponseManager)
+Buyer -->(ResponseManager)
+ResponseManager -->(AppointmentRequest)
+AppointmentRequest -->(Notification)
+Notification -->(Realtor)
+
+@enduml"
+fr,The product shall allow the user to save the property search results,modification,later,customer,1,4,8,low,"User story:
+As a user, I want to save the property search results so that I can easily access and review them later.
+
+Components:
+- Search Module
+- Result Processing Module
+- Data Storage Module
+- User Interface Module
+
+PlantUML:
+```plantuml
+@startuml
+left to right direction
+
+actor User as ""User""
+
+component SearchModule as ""Search Module""
+component ResultProcessingModule as ""Result Processing Module""
+component DataStorageModule as ""Data Storage Module""
+component UserInterfaceModule as ""User Interface Module""
+
+User --> UserInterfaceModule
+UserInterfaceModule --> SearchModule
+SearchModule --> ResultProcessingModule
+ResultProcessingModule --> DataStorageModule
+ResultProcessingModule --> UserInterfaceModule
+
+@enduml
+```","@startuml
+left to right direction
+
+actor User as ""User""
+
+component SearchModule as ""Search Module""
+component ResultProcessingModule as ""Result Processing Module""
+component DataStorageModule as ""Data Storage Module""
+component UserInterfaceModule as ""User Interface Module""
+
+User --> UserInterfaceModule
+UserInterfaceModule --> SearchModule
+SearchModule --> ResultProcessingModule
+ResultProcessingModule --> DataStorageModule
+ResultProcessingModule --> UserInterfaceModule
+
+@enduml"
+nfr,The system shall be easy to use by the Program Administrators/Nursing Staff Members,modification,soon,organization,3,3,4,low,"User story:
+As a Program Administrator/Nursing Staff Member, I want to easily navigate and use the system so that I can efficiently manage programs and provide quality care to patients.
+
+Components:
+- User Interface (UI) Module: responsible for providing an intuitive and user-friendly interface for Program Administrators and Nursing Staff Members.
+- Accessibility Module: ensures the system is accessible on various devices and platforms, catering to different user needs.
+- Training Module: offers guided tutorials, hints, and documentation to help users understand the system's functionality.
+- Feedback Mechanism: allows users to provide feedback and suggestions for improving the system's usability.
+- Simplified Workflow Module: streamlines workflows and reduces complexity, making it easier for users to perform tasks.
+
+PlantUML:
+```plantuml
+@startuml
+component ""User Interface (UI) Module"" as UI
+component ""Accessibility Module"" as AM
+component ""Training Module"" as TM
+component ""Feedback Mechanism"" as FM
+component ""Simplified Workflow Module"" as SWM
+
+actor ""Program Administrator"" as PA
+actor ""Nursing Staff Member"" as NSM
+
+PA ---> UI : uses
+NSM ---> UI : uses
+UI ---> AM : utilizes
+UI ---> TM : integrates
+UI ---> FM : incorporates
+UI ---> SWM : streamlines
+
+AM ---> UI : enhances
+TM ---> UI : supports
+FM ---> UI : informs
+SWM ---> UI : optimizes
+
+@enduml
+```","@startuml
+component """"User Interface (UI) Module"" as UI
+component ""Accessibility Module"" as AM
+component ""Training Module"" as TM
+component ""Feedback Mechanism"" as FM
+component ""Simplified Workflow Module"" as SWM
+
+actor ""Program Administrator"" as PA
+actor ""Nursing Staff Member"""" as NSM
+
+PA ---> UI : uses
+NSM ---> UI : uses
+UI ---> AM : utilizes
+UI ---> TM : integrates
+UI ---> FM : incorporates
+UI ---> SWM : streamlines
+
+AM ---> UI : enhances
+TM ---> UI : supports
+FM ---> UI : informs
+SWM ---> UI : optimizes
+
+@enduml"
+nfr,All of the users shall be able to use the system after one day of training,modification,soon,developer knowledge,1,3,4,low,"User story:
+As a system administrator, I want to ensure that all users can effectively use the system after one day of training so that the system can be utilized efficiently and effectively by all users.
+
+Components:
+- User Interface (UI) Module: to provide an intuitive and user-friendly interface for users to interact with the system
+- Training Module: to provide interactive training sessions and materials for users to learn the system
+- Documentation Module: to provide comprehensive documentation and user manuals for users to refer to during and after training
+- System Feedback Mechanism: to collect user feedback and suggestions for improving the system's usability and overall user experience
+
+PlantUML:
+```plantuml
+@startuml
+component User_Interface as ""User Interface (UI) Module""
+component Training_Module as ""Training Module""
+component Documentation_Module as ""Documentation Module""
+component System_Feedback_Mechanism as ""System Feedback Mechanism""
+component Users as ""Users""
+
+Users -->(User_Interface)
+Users -->(Training_Module)
+Users -->(Documentation_Module)
+Users -->(System_Feedback_Mechanism)
+
+User_Interface --* Training_Module
+User_Interface --* Documentation_Module
+Training_Module --* Documentation_Module
+System_Feedback_Mechanism --* User_Interface
+
+@enduml
+```
+Note: The component diagram shows the relationships between the different components and how they interact with each other to ensure that users can effectively use the system after one day of training. The Users component represents the end-users of the system.","@startuml
+component ""User_Interface as ""User Interface (UI) Module""
+component Training_Module as ""Training Module""
+component Documentation_Module as ""Documentation Module""
+component System_Feedback_Mechanism as ""System Feedback Mechanism""
+component Users"" as ""Users""
+
+Users -->(User_Interface)
+Users -->(Training_Module)
+Users -->(Documentation_Module)
+Users -->(System_Feedback_Mechanism)
+
+User_Interface --* Training_Module
+User_Interface --* Documentation_Module
+Training_Module --* Documentation_Module
+System_Feedback_Mechanism --* User_Interface
+
+@enduml"
+nfr,The system shall help the user avoid making mistakes while scheduling classes and clinicals for the nursing students,modification,soon,organization,2,2,3,low,"User story:
+As a nursing program administrator, I want to use a scheduling system that automatically checks for conflicts and suggests optimal schedules so that I can avoid making mistakes while scheduling classes and clinicals for the nursing students.
+
+Components:
+- Scheduling Algorithm Module
+- Conflict Detection Module
+- Schedule Optimization Module
+- User Interface Module
+- Database Module (to store student, class, and clinical information)
+- Validation Module (to ensure data consistency and accuracy)
+
+PlantUML:
+```plantuml
+@startuml
+component SchedulingAlgorithm as ""Scheduling Algorithm Module""
+component ConflictDetection as ""Conflict Detection Module""
+component ScheduleOptimization as ""Schedule Optimization Module""
+component UserInterface as ""User Interface Module""
+component Database as ""Database Module""
+component Validation as ""Validation Module""
+
+actor Administrator as ""Nursing Program Administrator""
+
+Administrator --> UserInterface
+UserInterface --> SchedulingAlgorithm
+SchedulingAlgorithm --> ConflictDetection
+ConflictDetection --> ScheduleOptimization
+ScheduleOptimization --> Database
+Database --> Validation
+Validation --> SchedulingAlgorithm
+
+@enduml
+```","@startuml
+component ""SchedulingAlgorithm as ""Scheduling Algorithm Module""
+component ConflictDetection as ""Conflict Detection Module""
+component ScheduleOptimization as ""Schedule Optimization Module""
+component UserInterface as ""User Interface Module""
+component Database as ""Database Module""
+component Validation as ""Validation Module""
+
+actor Administrator"" as ""Nursing Program Administrator""
+
+Administrator --> UserInterface
+UserInterface --> SchedulingAlgorithm
+SchedulingAlgorithm --> ConflictDetection
+ConflictDetection --> ScheduleOptimization
+ScheduleOptimization --> Database
+Database --> Validation
+Validation --> SchedulingAlgorithm
+
+@enduml"
+nfr,The number of mistakes noted by the students shall be decreased by 50% in the first year,modification,later,developer knowledge,1,4,8,low,"User story:
+As a teacher, I want to implement an effective learning system so that the number of mistakes noted by the students is decreased by 50% in the first year.
+
+Components:
+- Mistake Tracking Module
+- Personalized Learning Module
+- Real-time Feedback Module
+- Data Analytics Module
+- Teacher Dashboard
+
+PlantUML:
+```plantuml
+@startuml
+component MistakeTrackingModule as ""Mistake Tracking Module""
+component PersonalizedLearningModule as ""Personalized Learning Module""
+component RealTimeFeedbackModule as ""Real-time Feedback Module""
+component DataAnalyticsModule as ""Data Analytics Module""
+component TeacherDashboard as ""Teacher Dashboard""
+
+user Teacher as ""Teacher""
+user Student as ""Student""
+
+Teacher -->> TeacherDashboard : uses
+TeacherDashboard -->> MistakeTrackingModule : monitors
+TeacherDashboard -->> PersonalizedLearningModule : configures
+TeacherDashboard -->> RealTimeFeedbackModule : views
+TeacherDashboard -->> DataAnalyticsModule : analyzes
+
+Student -->> PersonalizedLearningModule : interacts
+PersonalizedLearningModule -->> RealTimeFeedbackModule : sends
+RealTimeFeedbackModule -->> Student : receives
+RealTimeFeedbackModule -->> MistakeTrackingModule : updates
+MistakeTrackingModule -->> DataAnalyticsModule : provides data
+DataAnalyticsModule -->> TeacherDashboard : displays insights
+@enduml
+```","@startuml
+component ""MistakeTrackingModule as ""Mistake Tracking Module""
+component PersonalizedLearningModule as ""Personalized Learning Module""
+component RealTimeFeedbackModule as ""Real-time Feedback Module""
+component DataAnalyticsModule as ""Data Analytics Module""
+component TeacherDashboard as ""Teacher Dashboard""
+
+user Teacher as ""Teacher""
+user Student"" as ""Student""
+
+Teacher -->> TeacherDashboard : uses
+TeacherDashboard -->> MistakeTrackingModule : monitors
+TeacherDashboard -->> PersonalizedLearningModule : configures
+TeacherDashboard -->> RealTimeFeedbackModule : views
+TeacherDashboard -->> DataAnalyticsModule : analyzes
+
+Student -->> PersonalizedLearningModule : interacts
+PersonalizedLearningModule -->> RealTimeFeedbackModule : sends
+RealTimeFeedbackModule -->> Student : receives
+RealTimeFeedbackModule -->> MistakeTrackingModule : updates
+MistakeTrackingModule -->> DataAnalyticsModule : provides data
+DataAnalyticsModule -->> TeacherDashboard : displays insights
+@enduml"
+nfr,The system shall be intuitive to the Program Administrators/Nursing Staff Members,modification,soon,organization,3,3,4,low,"User story:
+As a Program Administrator/Nursing Staff Member, I want the system to be easy to navigate and understand so that I can efficiently manage programs and provide quality care without extensive training.
+
+Components:
+- User Interface (UI) Module: responsible for providing an intuitive and user-friendly interface for Program Administrators and Nursing Staff Members.
+- User Experience (UX) Module: focuses on creating a seamless and engaging experience for users, ensuring that the system is easy to learn and use.
+- Accessibility Module: ensures that the system is accessible to all users, including those with disabilities, and follows accessibility guidelines.
+- Training and Support Module: provides resources and support to help Program Administrators and Nursing Staff Members get familiar with the system and resolve any issues they may encounter.
+
+PlantUML:
+```plantuml
+@startuml
+component ""User Interface (UI)"" as UI
+component ""User Experience (UX)"" as UX
+component ""Accessibility"" as ACC
+component ""Training and Support"" as TS
+
+actor ""Program Administrator"" as PA
+actor ""Nursing Staff Member"" as NSM
+
+PA ---> UI : uses
+NSM ---> UI : uses
+UI ---> UX : provides
+UX ---> ACC : ensures
+ACC ---> TS : supports
+TS ---> PA : assists
+TS ---> NSM : assists
+
+@enduml
+```","@startuml
+component """"User Interface (UI)"" as UI
+component ""User Experience (UX)"" as UX
+component ""Accessibility"" as ACC
+component ""Training and Support"" as TS
+
+actor ""Program Administrator"" as PA
+actor ""Nursing Staff Member"" as NSM
+
+PA ---> UI : uses
+NSM ---> UI : uses
+UI ---> UX : provides
+UX ---> ACC : ensures
+ACC ---> TS : supports
+TS ---> PA : assists
+TS ---> NSM :"" assists
+
+@enduml"
+nfr,2 out of 3 Program Administrators/Nursing Staff Members shall successfully be able to use the system to manage the scheduling of classes and clinicals,modification,soon,organization,3,3,4,low,"User story:
+As a Program Administrator/Nursing Staff Member, I want to be able to manage the scheduling of classes and clinicals using the system so that I can efficiently organize and coordinate educational activities.
+
+Components:
+- User Authentication Module
+- Scheduling Module
+- Class Management Module
+- Clinical Management Module
+- User Interface (UI) Module
+- Database Module
+
+PlantUML:
+```plantuml
+@startuml
+component UserAuthentication as ""User Authentication""
+component Scheduling as ""Scheduling""
+component ClassManagement as ""Class Management""
+component ClinicalManagement as ""Clinical Management""
+component UserInterface as ""User Interface""
+component Database as ""Database""
+
+ProgramAdministrator ---> UserInterface
+NursingStaffMember ---> UserInterface
+UserInterface ---> UserAuthentication
+UserInterface ---> Scheduling
+UserInterface ---> ClassManagement
+UserInterface ---> ClinicalManagement
+Scheduling ---> Database
+ClassManagement ---> Database
+ClinicalManagement ---> Database
+UserAuthentication ---> Database
+
+@enduml
+```
+Note: The architectural base diagram is a Component Diagram, which is suitable for Non-Functional Requirements (NFR) like","@startuml
+component ""UserAuthentication as ""User Authentication""
+component Scheduling as ""Scheduling""
+component ClassManagement as ""Class Management""
+component ClinicalManagement as ""Clinical Management""
+component UserInterface as ""User Interface""
+component Database"" as ""Database""
+
+ProgramAdministrator ---> UserInterface
+NursingStaffMember ---> UserInterface
+UserInterface ---> UserAuthentication
+UserInterface ---> Scheduling
+UserInterface ---> ClassManagement
+UserInterface ---> ClinicalManagement
+Scheduling ---> Database
+ClassManagement ---> Database
+ClinicalManagement ---> Database
+UserAuthentication ---> Database
+
+@enduml"
+nfr,The system shall use symbols and words that are naturally understandable by the user community,modification,soon,project vision,1,2,3,low,"User story:
+As a user, I want the system to use intuitive symbols and words so that I can easily understand and interact with the system.
+
+Components:
+- Localization Module
+- Icon Library
+- Terminology Manager
+- User Interface (UI) Component
+- Natural Language Processing (NLP) Module
+
+PlantUML:
+```plantuml
+@startuml
+component LocalizationModule as ""Localization Module""
+component IconLibrary as ""Icon Library""
+component TerminologyManager as ""Terminology Manager""
+component UIComponent as ""User Interface (UI) Component""
+component NLPModule as ""Natural Language Processing (NLP) Module""
+actor User as ""User""
+
+User --> UIComponent
+UIComponent --> LocalizationModule
+UIComponent --> IconLibrary
+UIComponent --> TerminologyManager
+LocalizationModule --> NLPModule
+IconLibrary --> NLPModule
+TerminologyManager --> NLPModule
+@enduml
+```","@startuml
+component ""LocalizationModule as ""Localization Module""
+component IconLibrary as ""Icon Library""
+component TerminologyManager as ""Terminology Manager""
+component UIComponent as ""User Interface (UI) Component""
+component NLPModule as ""Natural Language Processing (NLP) Module""
+actor User"" as ""User""
+
+User --> UIComponent
+UIComponent --> LocalizationModule
+UIComponent --> IconLibrary
+UIComponent --> TerminologyManager
+LocalizationModule --> NLPModule
+IconLibrary --> NLPModule
+TerminologyManager --> NLPModule
+@enduml"
+nfr,The verbiage used within the system shall be consistent with Standard English and the terminology of the national Nursing Community,modification,soon,developer knowledge,1,3,4,low,"User story:
+As a nurse, I want the system to use consistent verbiage in Standard English and nursing terminology so that I can easily understand and use the system effectively.
+
+Components:
+- Terminology Validator
+- Language Consistency Checker
+- Nursing Domain Knowledge Base
+- System Content Generator
+- User Interface
+
+PlantUML:
+```plantuml
+@startuml
+component TerminologyValidator as ""Terminology Validator""
+component LanguageConsistencyChecker as ""Language Consistency Checker""
+component NursingDomainKnowledgeBase as ""Nursing Domain Knowledge Base""
+component SystemContentGenerator as ""System Content Generator""
+component UserInterface as ""User Interface""
+
+actor Nurse as ""Nurse""
+
+Nurse --> UserInterface
+UserInterface --> SystemContentGenerator
+SystemContentGenerator --> TerminologyValidator
+SystemContentGenerator --> LanguageConsistencyChecker
+TerminologyValidator --> NursingDomainKnowledgeBase
+LanguageConsistencyChecker --> NursingDomainKnowledgeBase
+
+@enduml
+```","@startuml
+component ""TerminologyValidator as ""Terminology Validator""
+component LanguageConsistencyChecker as ""Language Consistency Checker""
+component NursingDomainKnowledgeBase as ""Nursing Domain Knowledge Base""
+component SystemContentGenerator as ""System Content Generator""
+component UserInterface as ""User Interface""
+
+actor Nurse"" as ""Nurse""
+
+Nurse --> UserInterface
+UserInterface --> SystemContentGenerator
+SystemContentGenerator --> TerminologyValidator
+SystemContentGenerator --> LanguageConsistencyChecker
+TerminologyValidator --> NursingDomainKnowledgeBase
+LanguageConsistencyChecker --> NursingDomainKnowledgeBase
+
+@enduml"
+nfr,Staff members shall be able to complete a set of tasks in a timely manner,modification,soon,developer knowledge,1,2,3,low,"User story:
+As a staff member, I want to complete a set of tasks efficiently so that I can meet deadlines and achieve productivity goals.
+
+Components:
+- Task Management System
+- User Authentication Module
+- Workflow Optimization Tool
+- Performance Monitoring Dashboard
+- Notification System
+
+PlantUML:
+```plantuml
+@startuml
+component Task Management System as ""Task Management System""
+component User Authentication Module as ""User Authentication Module""
+component Workflow Optimization Tool as ""Workflow Optimization Tool""
+component Performance Monitoring Dashboard as ""Performance Monitoring Dashboard""
+component Notification System as ""Notification System""
+
+actor Staff Member as ""Staff Member""
+
+Staff Member --> Task Management System
+Task Management System --> User Authentication Module
+Task Management System --> Workflow Optimization Tool
+Workflow Optimization Tool --> Performance Monitoring Dashboard
+Performance Monitoring Dashboard --> Notification System
+Staff Member --> Notification System
+
+@enduml
+```","@startuml
+component ""Task Management System as ""Task Management System""
+component User Authentication Module as ""User Authentication Module""
+component Workflow Optimization Tool as ""Workflow Optimization Tool""
+component Performance Monitoring Dashboard as ""Performance Monitoring Dashboard""
+component Notification System as ""Notification System""
+
+actor Staff Member"" as ""Staff Member""
+
+Staff Member --> Task Management System
+Task Management System --> User Authentication Module
+Task Management System --> Workflow Optimization Tool
+Workflow Optimization Tool --> Performance Monitoring Dashboard
+Performance Monitoring Dashboard --> Notification System
+Staff Member --> Notification System
+
+@enduml"
+nfr,The response time of general student management tasks shall take no longer than 5 seconds and the response time of schedule generation shall take no longer than 30 seconds,modification,later,organization,1,4,8,low,"User story:
+As a system administrator, I want the system to respond to general student management tasks within 5 seconds and to schedule generation tasks within 30 seconds, so that the system provides a responsive and efficient experience for users.
+
+Components:
+- Student Management Module
+- Schedule Generation Module
+- Database Module
+- Load Balancer Module
+- Web Server Module
+
+PlantUML:
+```plantuml
+@startuml
+component StudentManagement as ""Student Management Module""
+component ScheduleGeneration as ""Schedule Generation Module""
+component Database as ""Database Module""
+component LoadBalancer as ""Load Balancer Module""
+component WebServer as ""Web Server Module""
+
+LoadBalancer --* WebServer
+WebServer --* StudentManagement
+WebServer --* ScheduleGeneration
+StudentManagement --* Database
+ScheduleGeneration --* Database
+
+actor SystemAdministrator as ""System Administrator""
+
+SystemAdministrator --* WebServer
+
+@enduml
+```
+Note: The component diagram shows the main components involved in the system and their relationships. The Load Balancer Module is included to ensure that the system can handle a large number of requests and distribute the load efficiently, which is crucial for meeting the response time requirements. The Web Server Module acts as an entry point for user requests, and it communicates with the Student Management Module and Schedule Generation Module to perform the necessary tasks. Both of these modules interact with the Database Module to retrieve and store data. The System Administrator actor is included to represent the user who interacts with the system.","@startuml
+component ""StudentManagement as ""Student Management Module""
+component ScheduleGeneration as ""Schedule Generation Module""
+component Database as ""Database Module""
+component LoadBalancer as ""Load Balancer Module""
+component WebServer as ""Web Server Module""
+
+LoadBalancer --* WebServer
+WebServer --* StudentManagement
+WebServer --* ScheduleGeneration
+StudentManagement --* Database
+ScheduleGeneration --* Database
+
+actor SystemAdministrator"" as ""System Administrator""
+
+SystemAdministrator --* WebServer
+
+@enduml"
+nfr,The system shall be available for use between the hours of 8am and 6pm,modification,soon,customer,3,3,4,low,"User story:
+As a system administrator, I want the system to be available for use between the hours of 8am and 6pm so that users can access the system during business hours.
+
+Components:
+- Scheduling Module
+- System Monitor
+- User Interface
+- Availability Checker
+- Notification System
+
+PlantUML:
+```plantuml
+@startuml
+component Scheduling_Module as ""Scheduling Module""
+component System_Monitor as ""System Monitor""
+component User_Interface as ""User Interface""
+component Availability_Checker as ""Availability Checker""
+component Notification_System as ""Notification System""
+
+System_Monitor --* Scheduling_Module : monitors schedule
+Scheduling_Module --* Availability_Checker : checks availability
+Availability_Checker --* Notification_System : sends notifications
+User_Interface --* System_Monitor : displays system status
+System_Monitor --* User_Interface : updates user interface
+
+actor System_Administrator as ""System Administrator""
+System_Administrator --* Scheduling_Module : configures schedule
+System_Administrator --* Notification_System : receives notifications
+
+actor User as ""User""
+User --* User_Interface : interacts with system
+
+@enduml
+```
+Note: The component diagram shows the relationships between the different components of the system, including the scheduling module, system monitor, user interface, availability checker, and notification system. The system administrator configures the schedule and receives notifications, while the user interacts with the system through the user interface. The system monitor updates the user interface and checks the system's availability based on the schedule.","@startuml
+component ""Scheduling_Module as ""Scheduling Module""
+component System_Monitor as ""System Monitor""
+component User_Interface as ""User Interface""
+component Availability_Checker as ""Availability Checker""
+component Notification_System as ""Notification System""
+
+System_Monitor --* Scheduling_Module : monitors schedule
+Scheduling_Module --* Availability_Checker : checks availability
+Availability_Checker --* Notification_System : sends notifications
+User_Interface --* System_Monitor : displays system status
+System_Monitor --* User_Interface : updates user interface
+
+actor System_Administrator as ""System Administrator""
+System_Administrator --* Scheduling_Module : configures schedule
+System_Administrator --* Notification_System : receives notifications
+
+actor User"" as ""User""
+User --* User_Interface : interacts with system
+
+@enduml"
+nfr,The system shall achieve 95% up time,modification,soon,project vision,1,2,3,low,"User story:
+As a System Administrator, I want the system to be available and accessible 95% of the time so that users can reliably use the system to perform their tasks.
+
+Components:
+- Monitoring Module: to track system uptime and detect downtime
+- Alert System: to notify administrators of downtime or potential downtime
+- Backup and Recovery Module: to quickly recover from failures and minimize downtime
+- Load Balancer: to distribute traffic and prevent overload
+- Redundancy Module: to ensure duplicate systems are available in case of failure
+
+PlantUML:
+```plantuml
+@startuml
+component MonitoringModule as ""Monitoring Module""
+component AlertSystem as ""Alert System""
+component BackupAndRecoveryModule as ""Backup and Recovery Module""
+component LoadBalancer as ""Load Balancer""
+component RedundancyModule as ""Redundancy Module""
+component System as ""System""
+
+actor SystemAdministrator as ""System Administrator""
+
+SystemAdministrator -- MonitoringModule
+MonitoringModule -- AlertSystem
+AlertSystem -- SystemAdministrator
+MonitoringModule -- System
+System -- LoadBalancer
+LoadBalancer -- RedundancyModule
+RedundancyModule -- System
+System -- BackupAndRecoveryModule
+BackupAndRecoveryModule -- System
+
+@enduml
+```","@startuml
+component ""MonitoringModule as ""Monitoring Module""
+component AlertSystem as ""Alert System""
+component BackupAndRecoveryModule as ""Backup and Recovery Module""
+component LoadBalancer as ""Load Balancer""
+component RedundancyModule as ""Redundancy Module""
+component System as ""System""
+
+actor SystemAdministrator"" as ""System Administrator""
+
+SystemAdministrator -- MonitoringModule
+MonitoringModule -- AlertSystem
+AlertSystem -- SystemAdministrator
+MonitoringModule -- System
+System -- LoadBalancer
+LoadBalancer -- RedundancyModule
+RedundancyModule -- System
+System -- BackupAndRecoveryModule
+BackupAndRecoveryModule -- System
+
+@enduml"
+nfr,system shall be able to handle all of the user requests/usage during business hours,modification,soon,customer,1,2,2,low,"User story:
+As a System Administrator, I want the system to handle all user requests and usage during business hours so that the system remains available and responsive to users.
+
+Components:
+- Load Balancer
+- Application Server
+- Database Server
+- Cache Server
+- Monitoring Tool
+
+PlantUML:
+```plantuml
+@startuml
+component Load_Balancer as ""Load Balancer""
+component Application_Server as ""Application Server""
+component Database_Server as ""Database Server""
+component Cache_Server as ""Cache Server""
+component Monitoring_Tool as ""Monitoring Tool""
+component User as ""User""
+
+Load_Balancer --* Application_Server : distributes requests
+Application_Server --* Database_Server : reads/writes data
+Application_Server --* Cache_Server : reads/writes cache
+Monitoring_Tool --* Load_Balancer : monitors load
+Monitoring_Tool --* Application_Server : monitors performance
+Monitoring_Tool --* Database_Server : monitors queries
+Monitoring_Tool --* Cache_Server : monitors cache hits
+User --* Load_Balancer : sends requests
+
+@enduml
+```
+Note: The component diagram shows the high-level components involved in handling user requests during business hours. The Load Balancer distributes incoming requests to multiple Application Servers, which interact with the Database Server and Cache Server. The Monitoring Tool keeps track of the system's performance and load, ensuring that the system can handle all user requests.","@startuml
+component ""Load_Balancer as ""Load Balancer""
+component Application_Server as ""Application Server""
+component Database_Server as ""Database Server""
+component Cache_Server as ""Cache Server""
+component Monitoring_Tool as ""Monitoring Tool""
+component User"" as ""User""
+
+Load_Balancer --* Application_Server : distributes requests
+Application_Server --* Database_Server : reads/writes data
+Application_Server --* Cache_Server : reads/writes cache
+Monitoring_Tool --* Load_Balancer : monitors load
+Monitoring_Tool --* Application_Server : monitors performance
+Monitoring_Tool --* Database_Server : monitors queries
+Monitoring_Tool --* Cache_Server : monitors cache hits
+User --* Load_Balancer : sends requests
+
+@enduml"
+fr,The system shall be able to display a printable summary of the system log,modification,soon,organization,1,2,3,low,"User story:
+As a system administrator, I want to be able to display a printable summary of the system log so that I can easily review and analyze the system's activity.
+
+Components:
+- System Log Module: responsible for collecting and storing system logs
+- Log Summary Generator: responsible for generating a summary of the system log
+- Print Module: responsible for handling the printing of the log summary
+- User Interface: responsible for displaying the log summary to the system administrator
+
+PlantUML:
+```plantuml
+@startuml
+left to right direction
+
+actor SystemAdministrator as ""System Administrator""
+component SystemLogModule as ""System Log Module""
+component LogSummaryGenerator as ""Log Summary Generator""
+component PrintModule as ""Print Module""
+component UserInterface as ""User Interface""
+
+SystemAdministrator -- (View Log Summary)
+SystemAdministrator --> UserInterface : uses
+UserInterface --> LogSummaryGenerator : requests summary
+LogSummaryGenerator --> SystemLogModule : retrieves logs
+SystemLogModule --> LogSummaryGenerator : provides logs
+LogSummaryGenerator --> UserInterface : provides summary
+UserInterface --> PrintModule : prints summary
+PrintModule --> SystemAdministrator : provides printed summary
+
+@enduml
+```","@startuml
+left to right direction
+
+actor SystemAdministrator as ""System Administrator""
+component SystemLogModule as ""System Log Module""
+component LogSummaryGenerator as ""Log Summary Generator""
+component PrintModule as ""Print Module""
+component UserInterface as ""User Interface""
+
+SystemAdministrator -- (View Log Summary)
+SystemAdministrator --> UserInterface : uses
+UserInterface --> LogSummaryGenerator : requests summary
+LogSummaryGenerator --> SystemLogModule : retrieves logs
+SystemLogModule --> LogSummaryGenerator : provides logs
+LogSummaryGenerator --> UserInterface : provides summary
+UserInterface --> PrintModule : prints summary
+PrintModule --> SystemAdministrator : provides printed summary
+
+@enduml"
+fr,The system shall contain contact information (e-mail and phone number) for all people relevant to the system  including (but not limited to) staff members  students  lecture instructors  clinical lab instructors  and clinical site administrators,modification,soon,organization,1,2,3,low,"User story:
+As a system administrator, I want to store and manage contact information for all relevant individuals, including staff members, students, lecture instructors, clinical lab instructors, and clinical site administrators, so that I can easily access and update their email addresses and phone numbers.
+
+Components:
+- Contact Information Module
+- User Management Module
+- Database Storage Component
+- Data Access Component
+- Validation Component
+
+PlantUML:
+```plantuml
+@startuml
+left to right direction
+
+actor System_Administrator as ""System Administrator""
+actor Staff_Member as ""Staff Member""
+actor Student as ""Student""
+actor Lecture_Instructor as ""Lecture Instructor""
+actor Clinical_Lab_Instructor as ""Clinical Lab Instructor""
+actor Clinical_Site_Administrator as ""Clinical Site Administrator""
+
+component Contact_Information_Module as ""Contact Information Module""
+component User_Management_Module as ""User Management Module""
+component Database_Storage_Component as ""Database Storage""
+component Data_Access_Component as ""Data Access""
+component Validation_Component as ""Validation""
+
+System_Administrator -- (Manage Contact Information)
+Staff_Member -- (View Own Contact Information)
+Student -- (View Own Contact Information)
+Lecture_Instructor -- (View Own Contact Information)
+Clinical_Lab_Instructor -- (View Own Contact Information)
+Clinical_Site_Administrator -- (View Own Contact Information)
+
+System_Administrator ..> Contact_Information_Module
+Contact_Information_Module ..> User_Management_Module
+User_Management_Module ..> Database_Storage_Component
+Database_Storage_Component ..> Data_Access_Component
+Data_Access_Component ..> Validation_Component
+
+@enduml
+```","@startuml
+left to right direction
+
+actor System_Administrator as ""System Administrator""
+actor Staff_Member as ""Staff Member""
+actor Student as ""Student""
+actor Lecture_Instructor as ""Lecture Instructor""
+actor Clinical_Lab_Instructor as ""Clinical Lab Instructor""
+actor Clinical_Site_Administrator as ""Clinical Site Administrator""
+
+component Contact_Information_Module as ""Contact Information Module""
+component User_Management_Module as ""User Management Module""
+component Database_Storage_Component as ""Database Storage""
+component Data_Access_Component as ""Data Access""
+component Validation_Component as ""Validation""
+
+System_Administrator -- (Manage Contact Information)
+Staff_Member -- (View Own Contact Information)
+Student -- (View Own Contact Information)
+Lecture_Instructor -- (View Own Contact Information)
+Clinical_Lab_Instructor -- (View Own Contact Information)
+Clinical_Site_Administrator -- (View Own Contact Information)
+
+System_Administrator ..> Contact_Information_Module
+Contact_Information_Module ..> User_Management_Module
+User_Management_Module ..> Database_Storage_Component
+Database_Storage_Component ..> Data_Access_Component
+Data_Access_Component ..> Validation_Component
+
+@enduml"
+fr,The system will use the stored e-mail addresses as a primary means of communicating information to affected parties,addition,soon,developer knowledge,1,3,4,low,"User story:
+As a system administrator, I want to use stored e-mail addresses to send information to affected parties so that they can be notified in a timely and efficient manner.
+
+Components:
+- Email Database: a module to store and manage email addresses
+- Notification Service: a module to send emails to affected parties
+- User Management: a module to manage user information, including email addresses
+- Communication Module: a module to handle the communication with the email service
+
+PlantUML:
+```plantuml
+@startuml
+left to right direction
+actor ""Affected Party"" as affectedParty
+actor ""System Administrator"" as sysAdmin
+component ""Email Database"" as emailDb
+component ""Notification Service"" as notificationSvc
+component ""User Management"" as userMgmt
+component ""Communication Module"" as commModule
+component ""Email Service"" as emailSvc
+
+affectedParty -->(emailDb): receives email
+sysAdmin -->(userMgmt): manages users
+sysAdmin -->(notificationSvc): sends notifications
+userMgmt -->(emailDb): updates email addresses
+notificationSvc -->(commModule): sends emails
+commModule -->(emailSvc): uses email service
+emailDb -->(notificationSvc): provides email addresses
+@enduml
+```","@startuml
+left to right direction
+actor ""Affected Party"" as affectedParty
+actor ""System Administrator"" as sysAdmin
+component ""Email Database"" as emailDb
+component ""Notification Service"" as notificationSvc
+component ""User Management"" as userMgmt
+component ""Communication Module"" as commModule
+component ""Email Service"" as emailSvc
+
+affectedParty -->(emailDb): receives email
+sysAdmin -->(userMgmt): manages users
+sysAdmin -->(notificationSvc): sends notifications
+userMgmt -->(emailDb): updates email addresses
+notificationSvc -->(commModule): sends emails
+commModule -->(emailSvc): uses email service
+emailDb -->(notificationSvc): provides email addresses
+@enduml"
+fr,The system will notify affected parties for routine communication purposes including but not limited to informing students of upcoming offered classes (timeline) and what their schedule will be/shall be,modification,later,organization,2,3,4,low,"User story:
+As a student, I want to receive notifications about upcoming classes and my schedule so that I can plan accordingly and stay informed about my academic timeline.
+
+Components:
+- Notification Service
+- Student Information System
+- Class Schedule Manager
+- User Interface (for students to view their schedules and receive notifications)
+
+PlantUML:
+```plantuml
+@startuml
+left to right direction
+actor Student as ""Student""
+actor Administrator as ""Administrator""
+component NotificationService as ""Notification Service""
+component StudentInformationSystem as ""Student Information System""
+component ClassScheduleManager as ""Class Schedule Manager""
+component UserInterface as ""User Interface""
+
+Student -->(UserInterface)
+Administrator -->(ClassScheduleManager)
+ClassScheduleManager -->(NotificationService)
+NotificationService -->(StudentInformationSystem)
+StudentInformationSystem -->(UserInterface)
+
+@enduml
+```
+Note: The Use Case Diagram is represented using components and actors, as PlantUML's use case diagram syntax is not directly applicable to","@startuml
+left to right direction
+actor Student as ""Student""
+actor Administrator as ""Administrator""
+component NotificationService as ""Notification Service""
+component StudentInformationSystem as ""Student Information System""
+component ClassScheduleManager as ""Class Schedule Manager""
+component UserInterface as ""User Interface""
+
+Student -->(UserInterface)
+Administrator -->(ClassScheduleManager)
+ClassScheduleManager -->(NotificationService)
+NotificationService -->(StudentInformationSystem)
+StudentInformationSystem -->(UserInterface)
+
+@enduml"
+fr,The system will notify affected parties when changes occur affecting clinicals including but not limited to clinical section capacity changes  and clinical section cancellations,modification,later,customer,1,3,4,low,"User story:
+As a clinical administrator, I want to receive notifications when changes occur that affect clinicals, such as clinical section capacity changes and clinical section cancellations, so that I can take necessary actions to ensure continuity of care.
+
+Components:
+- Notification Service
+- Clinical Section Management Module
+- User Management Module
+- Notification Repository
+
+PlantUML:
+```plantuml
+@startuml
+left to right direction
+
+actor Clinical_Administrator as ""Clinical Administrator""
+actor System_Administrator as ""System Administrator""
+
+component Notification_Service as ""Notification Service""
+component Clinical_Section_Management as ""Clinical Section Management""
+component User_Management as ""User Management""
+component Notification_Repository as ""Notification Repository""
+
+Clinical_Administrator --> (Receive Notifications)
+System_Administrator --> (Configure Notifications)
+
+(Clinical Section Capacity Changes) ..> Notification_Service : trigger
+(Clinical Section Cancellations) ..> Notification_Service : trigger
+
+Notification_Service --* Clinical_Section_Management : uses
+Notification_Service --* User_Management : uses
+Notification_Service --* Notification_Repository : uses
+
+@enduml
+```","@startuml
+left to right direction
+
+actor Clinical_Administrator as ""Clinical Administrator""
+actor System_Administrator as ""System Administrator""
+
+component Notification_Service as ""Notification Service""
+component Clinical_Section_Management as ""Clinical Section Management""
+component User_Management as ""User Management""
+component Notification_Repository as ""Notification Repository""
+
+Clinical_Administrator --> (Receive Notifications)
+System_Administrator --> (Configure Notifications)
+
+(Clinical Section Capacity Changes) ..> Notification_Service : trigger
+(Clinical Section Cancellations) ..> Notification_Service : trigger
+
+Notification_Service --* Clinical_Section_Management : uses
+Notification_Service --* User_Management : uses
+Notification_Service --* Notification_Repository : uses
+
+@enduml"
+fr,The system will notify affected parties when changes occur affecting classes including but not limited to class cancellations  class section detail changes  and changes to class offerings for a given quarter,modification,later,organization,1,3,4,low,"User story:
+As a student or faculty member, I want to receive notifications when changes occur to classes, including cancellations, section detail changes, and changes to class offerings for a given quarter, so that I can stay informed and plan accordingly.
+
+Components:
+- Notification Service
+- Class Management System
+- User Management System
+- Notification Repository
+- Class Repository
+
+PlantUML:
+```plantuml
+@startuml
+left to right direction
+
+actor Student as ""Student""
+actor Faculty as ""Faculty""
+
+component NotificationService as ""Notification Service""
+component ClassManagementSystem as ""Class Management System""
+component UserManagementSystem as ""User Management System""
+component NotificationRepository as ""Notification Repository""
+component ClassRepository as ""Class Repository""
+
+Student --> NotificationService : receives notifications
+Faculty --> NotificationService : receives notifications
+NotificationService --* ClassManagementSystem : retrieves class information
+ClassManagementSystem --* ClassRepository : stores class information
+NotificationService --* UserManagementSystem : retrieves user information
+UserManagementSystem --* NotificationRepository : stores notification preferences
+NotificationService --* NotificationRepository : stores notifications
+
+@enduml
+```","@startuml
+left to right direction
+
+actor Student as ""Student""
+actor Faculty as ""Faculty""
+
+component NotificationService as ""Notification Service""
+component ClassManagementSystem as ""Class Management System""
+component UserManagementSystem as ""User Management System""
+component NotificationRepository as ""Notification Repository""
+component ClassRepository as ""Class Repository""
+
+Student --> NotificationService : receives notifications
+Faculty --> NotificationService : receives notifications
+NotificationService --* ClassManagementSystem : retrieves class information
+ClassManagementSystem --* ClassRepository : stores class information
+NotificationService --* UserManagementSystem : retrieves user information
+UserManagementSystem --* NotificationRepository : stores notification preferences
+NotificationService --* NotificationRepository : stores notifications
+
+@enduml"
+fr,The system will notify affected parties when changes occur affecting cohorts including but not limited to changes to the sequence for a cohort�s program of study and changes to a given week�s schedule (lab cancelled this week due to instructor illness),modification,later,organization,2,2,3,low,"User story:
+As a cohort administrator, I want to receive notifications when changes occur affecting cohorts, such as changes to the sequence for a cohort's program of study or changes to a given week's schedule, so that I can inform and update affected parties in a timely manner.
+
+Components:
+- Notification Service
+- Cohort Management Module
+- Schedule Management Module
+- User Management Module
+- Notification Repository
+
+PlantUML:
+```plantuml
+@startuml
+left to right direction
+
+actor CohortAdministrator as ""Cohort Administrator""
+actor Instructor as ""Instructor""
+actor Student as ""Student""
+
+component NotificationService as ""Notification Service""
+component CohortManagementModule as ""Cohort Management Module""
+component ScheduleManagementModule as ""Schedule Management Module""
+component UserManagementModule as ""User Management Module""
+component NotificationRepository as ""Notification Repository""
+
+CohortAdministrator --> CohortManagementModule
+Instructor --> ScheduleManagementModule
+Student --> CohortManagementModule
+CohortManagementModule --> NotificationService
+ScheduleManagementModule --> NotificationService
+UserManagementModule --> NotificationService
+NotificationService --> NotificationRepository
+NotificationService --> CohortAdministrator
+NotificationService --> Student
+
+@enduml
+```
+Note: The provided PlantUML code represents a Use Case Diagram, which is the most suitable for","@startuml
+left to right direction
+
+actor CohortAdministrator as ""Cohort Administrator""
+actor Instructor as ""Instructor""
+actor Student as ""Student""
+
+component NotificationService as ""Notification Service""
+component CohortManagementModule as ""Cohort Management Module""
+component ScheduleManagementModule as ""Schedule Management Module""
+component UserManagementModule as ""User Management Module""
+component NotificationRepository as ""Notification Repository""
+
+CohortAdministrator --> CohortManagementModule
+Instructor --> ScheduleManagementModule
+Student --> CohortManagementModule
+CohortManagementModule --> NotificationService
+ScheduleManagementModule --> NotificationService
+UserManagementModule --> NotificationService
+NotificationService --> NotificationRepository
+NotificationService --> CohortAdministrator
+NotificationService --> Student
+
+@enduml"
+fr,The system will notify affected parties when changes occur affecting specific students including but not limited to changing a student�s status from full time to part time and moving a student to a different clinical section,modification,later,developer knowledge,0,3,3,low,"User story:
+As a system administrator, I want to notify affected parties when changes occur affecting specific students, so that they are informed of updates to student status or clinical section assignments.
+
+Components:
+- Student Information Module
+- Notification Module
+- Clinical Section Module
+- User Management Module
+- Notification Service
+
+PlantUML:
+```plantuml
+@startuml
+left to right direction
+
+actor SystemAdministrator as ""System Administrator""
+actor AffectedParties as ""Affected Parties""
+actor Student as ""Student""
+
+component StudentInformationModule as ""Student Information Module""
+component NotificationModule as ""Notification Module""
+component ClinicalSectionModule as ""Clinical Section Module""
+component UserManagementModule as ""User Management Module""
+component NotificationService as ""Notification Service""
+
+SystemAdministrator --> StudentInformationModule : Update Student Status
+StudentInformationModule --> NotificationModule : Trigger Notification
+NotificationModule --> NotificationService : Send Notification
+NotificationService --> AffectedParties : Notify
+
+StudentInformationModule --> ClinicalSectionModule : Update Clinical Section
+ClinicalSectionModule --> NotificationModule : Trigger Notification
+NotificationModule --> NotificationService : Send Notification
+NotificationService --> AffectedParties : Notify
+
+UserManagementModule --> AffectedParties : Manage User Roles
+
+@enduml
+```","@startuml
+left to right direction
+
+actor SystemAdministrator as ""System Administrator""
+actor AffectedParties as ""Affected Parties""
+actor Student as ""Student""
+
+component StudentInformationModule as ""Student Information Module""
+component NotificationModule as ""Notification Module""
+component ClinicalSectionModule as ""Clinical Section Module""
+component UserManagementModule as ""User Management Module""
+component NotificationService as ""Notification Service""
+
+SystemAdministrator --> StudentInformationModule : Update Student Status
+StudentInformationModule --> NotificationModule : Trigger Notification
+NotificationModule --> NotificationService : Send Notification
+NotificationService --> AffectedParties : Notify
+
+StudentInformationModule --> ClinicalSectionModule : Update Clinical Section
+ClinicalSectionModule --> NotificationModule : Trigger Notification
+NotificationModule --> NotificationService : Send Notification
+NotificationService --> AffectedParties : Notify
+
+UserManagementModule --> AffectedParties : Manage User Roles
+
+@enduml"
+fr,Program Administrators/Nursing Staff Members shall have the ability to modify information relating to cohorts including cohort identifier  program of study  preferred sequence of classes and quarters that a cohort will be taking specific classes,modification,soon,organization,5,4,6,low,"User story:
+As a Program Administrator/Nursing Staff Member, I want to modify information relating to cohorts, including cohort identifier, program of study, preferred sequence of classes, and quarters that a cohort will be taking specific classes, so that I can effectively manage and track the progress of cohorts.
+
+Components:
+- Cohort Management Module
+- User Authentication Module
+- Authorization Module
+- Data Storage Module
+- User Interface Module
+
+PlantUML:
+```plantuml
+@startuml
+left to right direction
+
+actor ""Program Administrator/Nursing Staff Member"" as Admin
+
+component CohortManagement as ""Cohort Management Module""
+component UserAuthentication as ""User Authentication Module""
+component Authorization as ""Authorization Module""
+component DataStorage as ""Data Storage Module""
+component UserInterface as ""User Interface Module""
+
+Admin -- (Modify Cohort Information)
+Admin --> UserAuthentication : Authenticate
+UserAuthentication --> Authorization : Check Access
+Authorization --> CohortManagement : Modify Cohort
+CohortManagement --> DataStorage : Update Cohort Data
+DataStorage --> UserInterface : Display Updated Cohort Information
+UserInterface --> Admin : Display Updated Cohort Information
+
+@enduml
+```","@startuml
+left to right direction
+
+actor ""Program Administrator/Nursing Staff Member"" as Admin
+
+component CohortManagement as ""Cohort Management Module""
+component UserAuthentication as ""User Authentication Module""
+component Authorization as ""Authorization Module""
+component DataStorage as ""Data Storage Module""
+component UserInterface as ""User Interface Module""
+
+Admin -- (Modify Cohort Information)
+Admin --> UserAuthentication : Authenticate
+UserAuthentication --> Authorization : Check Access
+Authorization --> CohortManagement : Modify Cohort
+CohortManagement --> DataStorage : Update Cohort Data
+DataStorage --> UserInterface : Display Updated Cohort Information
+UserInterface --> Admin : Display Updated Cohort Information
+
+@enduml"
+fr,Program Administrators/Nursing Staff Members shall have the ability to modify information relating to a Program of Study within the Nursing Department  including the Program of study name  and required classes for that Program of Study,modification,soon,organization,6,4,5,low,"User story:
+As a Program Administrator or Nursing Staff Member, I want to modify information relating to a Program of Study within the Nursing Department, including the Program of study name and required classes for that Program of Study, so that I can ensure the accuracy and relevance of the program's details.
+
+Components:
+- Program of Study Management Module
+- User Authentication and Authorization Module
+- Nursing Department Database
+- Program of Study Information Editor
+- Required Classes Manager
+
+PlantUML:
+```plantuml
+@startuml
+left to right direction
+
+actor ""Program Administrator"" as admin
+actor ""Nursing Staff Member"" as staff
+
+component ""Program of Study Management Module"" as management
+component ""User Authentication and Authorization Module"" as auth
+component ""Nursing Department Database"" as database
+component ""Program of Study Information Editor"" as editor
+component ""Required Classes Manager"" as classes
+
+admin -->(management)
+staff -->(management)
+
+management --> auth
+management --> database
+management --> editor
+management --> classes
+
+editor --> database
+classes --> database
+
+@enduml
+```","@startuml
+left to right direction
+
+actor ""Program Administrator"" as admin
+actor ""Nursing Staff Member"" as staff
+
+component ""Program of Study Management Module"" as management
+component ""User Authentication and Authorization Module"" as auth
+component ""Nursing Department Database"" as database
+component ""Program of Study Information Editor"" as editor
+component ""Required Classes Manager"" as classes
+
+admin -->(management)
+staff -->(management)
+
+management --> auth
+management --> database
+management --> editor
+management --> classes
+
+editor --> database
+classes --> database
+
+@enduml"
+fr,Program Administrators/Nursing Staff Members shall have the ability to modify information relating to a Clinical Site including the clinical site name  site contact person  contact information  and address,addition,soon,organization,2,3,3,low,"User story:
+As a Program Administrator or Nursing Staff Member, I want to modify information relating to a Clinical Site, including the clinical site name, site contact person, contact information, and address, so that I can ensure the accuracy and up-to-dateness of clinical site information.
+
+Components:
+- Clinical Site Management Module
+- User Authentication Module
+- Authorization Module
+- Clinical Site Information Database
+- User Interface (UI) for Clinical Site Information Modification
+
+PlantUML:
+```plantuml
+@startuml
+left to right direction
+
+actor ""Program Administrator"" as PA
+actor ""Nursing Staff Member"" as NSM
+
+component ""User Authentication Module"" as UAM
+component ""Authorization Module"" as AM
+component ""Clinical Site Management Module"" as CSMM
+component ""Clinical Site Information Database"" as CSID
+component ""User Interface (UI)"" as UI
+
+PA ---> UAM : authenticate
+NSM ---> UAM : authenticate
+UAM ---> AM : check authorization
+AM ---> CSMM : grant access
+CSMM ---> CSID : modify clinical site information
+CSMM ---> UI : display modified information
+UI ---> PA : interact with
+UI ---> NSM : interact with
+
+@enduml
+```
+Note: The above PlantUML code represents a Use Case Diagram, which is the most suitable for","@startuml
+left to right direction
+
+actor ""Program Administrator"" as PA
+actor ""Nursing Staff Member"" as NSM
+
+component ""User Authentication Module"" as UAM
+component ""Authorization Module"" as AM
+component ""Clinical Site Management Module"" as CSMM
+component ""Clinical Site Information Database"" as CSID
+component ""User Interface (UI)"" as UI
+
+PA ---> UAM : authenticate
+NSM ---> UAM : authenticate
+UAM ---> AM : check authorization
+AM ---> CSMM : grant access
+CSMM ---> CSID : modify clinical site information
+CSMM ---> UI : display modified information
+UI ---> PA : interact with
+UI ---> NSM : interact with
+
+@enduml"
+fr,Program Administrators/Nursing Staff Members shall have the ability to modify information relating to a Clinical Lab Section  including the clinical site name  the department/section for the lab  the class  instructor  day and time of lab  and contact information,modification,soon,organization,3,3,5,low,"User story:
+As a Program Administrator or Nursing Staff Member, I want to modify information relating to a Clinical Lab Section, including the clinical site name, the department/section for the lab, the class, instructor, day and time of lab, and contact information, so that I can ensure the accuracy and completeness of lab section details.
+
+Components:
+- Clinical Lab Section Management Module
+- User Authentication and Authorization Module
+- Clinical Site Information Module
+- Department/Section Management Module
+- Class and Instructor Management Module
+- Lab Schedule Management Module
+- Contact Information Management Module
+- Database Module for storing lab section information
+
+PlantUML:
+```plantuml
+@startuml
+left to right direction
+
+actor ""Program Administrator"" as admin
+actor ""Nursing Staff Member"" as nurse
+
+component ""Clinical Lab Section Management"" as clsm
+component ""User Authentication and Authorization"" as uaa
+component ""Clinical Site Information"" as csi
+component ""Department/Section Management"" as dsm
+component ""Class and Instructor Management"" as cim
+component ""Lab Schedule Management"" as lsm
+component ""Contact Information Management"" as cim2
+component ""Database"" as db
+
+admin -- clsm
+nurse -- clsm
+
+clsm -- uaa
+clsm -- csi
+clsm -- dsm
+clsm -- cim
+clsm -- lsm
+clsm -- cim2
+clsm -- db
+
+@enduml
+```","@startuml
+left to right direction
+
+actor ""Program Administrator"" as admin
+actor ""Nursing Staff Member"" as nurse
+
+component ""Clinical Lab Section Management"" as clsm
+component ""User Authentication and Authorization"" as uaa
+component ""Clinical Site Information"" as csi
+component ""Department/Section Management"" as dsm
+component ""Class and Instructor Management"" as cim
+component ""Lab Schedule Management"" as lsm
+component ""Contact Information Management"" as cim2
+component ""Database"" as db
+
+admin -- clsm
+nurse -- clsm
+
+clsm -- uaa
+clsm -- csi
+clsm -- dsm
+clsm -- cim
+clsm -- lsm
+clsm -- cim2
+clsm -- db
+
+@enduml"
+fr,Program Administrators/Nursing Staff Members shall have the ability to modify information relating to a Nursing Student  including student ID  student name  phone number  e-mail  status (full time or part time)  and program of study,modification,soon,organization,2,3,4,low,"User story:
+As a Program Administrator or Nursing Staff Member, I want to modify information relating to a Nursing Student, including student ID, student name, phone number, email, status, and program of study, so that I can ensure the accuracy and completeness of student records.
+
+Components:
+- Student Information Management Module
+- User Authentication and Authorization Module
+- Data Storage Module
+- User Interface Module
+
+PlantUML:
+```plantuml
+@startuml
+left to right direction
+
+actor ""Program Administrator"" as PA
+actor ""Nursing Staff Member"" as NSM
+actor ""Nursing Student"" as NS
+
+component ""Student Information Management Module"" as SIMM
+component ""User Authentication and Authorization Module"" as UAA
+component ""Data Storage Module"" as DSM
+component ""User Interface Module"" as UIM
+
+PA -->(SIMM)
+NSM -->(SIMM)
+SIMM --> UAA
+UAA --> DSM
+SIMM --> UIM
+UIM --> PA
+UIM --> NSM
+DSM --> NS
+
+@enduml
+```","@startuml
+left to right direction
+
+actor ""Program Administrator"" as PA
+actor ""Nursing Staff Member"" as NSM
+actor ""Nursing Student"" as NS
+
+component ""Student Information Management Module"" as SIMM
+component ""User Authentication and Authorization Module"" as UAA
+component ""Data Storage Module"" as DSM
+component ""User Interface Module"" as UIM
+
+PA -->(SIMM)
+NSM -->(SIMM)
+SIMM --> UAA
+UAA --> DSM
+SIMM --> UIM
+UIM --> PA
+UIM --> NSM
+DSM --> NS
+
+@enduml"
+nfr,The Disputes application shall comply with the corporate standards for user interface creation for internally and externally used applications,modification,soon,organization,1,2,3,low,"User story:
+As a developer, I want to design the Disputes application's user interface in accordance with the corporate standards so that the application is consistent with other internally and externally used applications.
+
+Components:
+- User Interface Module
+- Corporate Standards Module
+- Compliance Checker Module
+- Application Framework
+
+PlantUML:
+```plantuml
+@startuml
+component UserInterfaceModule as ""User Interface Module""
+component CorporateStandardsModule as ""Corporate Standards Module""
+component ComplianceCheckerModule as ""Compliance Checker Module""
+component ApplicationFramework as ""Application Framework""
+
+UserInterfaceModule --* CorporateStandardsModule : follows
+ComplianceCheckerModule --* UserInterfaceModule : checks
+ComplianceCheckerModule --* CorporateStandardsModule : uses
+ApplicationFramework --* UserInterfaceModule : contains
+ApplicationFramework --* ComplianceCheckerModule : contains
+
+actor Developer as ""Developer""
+Developer -- UserInterfaceModule : designs
+Developer -- CorporateStandardsModule : references
+@enduml
+```","@startuml
+component ""UserInterfaceModule as ""User Interface Module""
+component CorporateStandardsModule as ""Corporate Standards Module""
+component ComplianceCheckerModule as ""Compliance Checker Module""
+component ApplicationFramework as ""Application Framework""
+
+UserInterfaceModule --* CorporateStandardsModule : follows
+ComplianceCheckerModule --* UserInterfaceModule : checks
+ComplianceCheckerModule --* CorporateStandardsModule : uses
+ApplicationFramework --* UserInterfaceModule : contains
+ApplicationFramework --* ComplianceCheckerModule : contains
+
+actor Developer"" as ""Developer""
+Developer -- UserInterfaceModule : designs
+Developer -- CorporateStandardsModule : references
+@enduml"
+nfr,All screens created as part of the Disputes application must comply with corporate standards for interface creation,modification,soon,organization,1,3,4,low,"User story:
+As a developer, I want to ensure that all screens in the Disputes application comply with corporate standards for interface creation so that the application maintains a consistent user experience and adheres to organizational branding guidelines.
+
+Components:
+- Interface Compliance Checker
+- Corporate Standards Repository
+- Disputes Application Screens
+- UI Component Library
+
+PlantUML:
+```plantuml
+@startuml
+component Interface_Compliance_Checker as ""Interface Compliance Checker""
+component Corporate_Standards_Repository as ""Corporate Standards Repository""
+component Disputes_Application_Screens as ""Disputes Application Screens""
+component UI_Component_Library as ""UI Component Library""
+
+actor Developer as ""Developer""
+
+Developer -- Interface_Compliance_Checker
+Interface_Compliance_Checker -- Corporate_Standards_Repository
+Interface_Compliance_Checker -- Disputes_Application_Screens
+Disputes_Application_Screens -- UI_Component_Library
+Corporate_Standards_Repository -- UI_Component_Library
+
+@enduml
+```","@startuml
+component ""Interface_Compliance_Checker as ""Interface Compliance Checker""
+component Corporate_Standards_Repository as ""Corporate Standards Repository""
+component Disputes_Application_Screens as ""Disputes Application Screens""
+component UI_Component_Library as ""UI Component Library""
+
+actor Developer"" as ""Developer""
+
+Developer -- Interface_Compliance_Checker
+Interface_Compliance_Checker -- Corporate_Standards_Repository
+Interface_Compliance_Checker -- Disputes_Application_Screens
+Disputes_Application_Screens -- UI_Component_Library
+Corporate_Standards_Repository -- UI_Component_Library
+
+@enduml"
+nfr,The list of dispute cases that are displayed after a search is performed must be color coded for easy identification of dispute cases based upon the dispute case status,modification,soon,organization,1,2,3,low,"User story:
+As a user, I want to view a color-coded list of dispute cases after performing a search so that I can easily identify the status of each dispute case.
+
+Components:
+- Dispute Case Search Module
+- Dispute Case Status Color Coding Module
+- Dispute Case Display Module
+- Dispute Case Database
+
+PlantUML:
+```plantuml
+@startuml
+component DisputeCaseSearch as ""Dispute Case Search Module""
+component DisputeCaseStatusColorCoding as ""Dispute Case Status Color Coding Module""
+component DisputeCaseDisplay as ""Dispute Case Display Module""
+component DisputeCaseDatabase as ""Dispute Case Database""
+
+user ""User"" as user
+
+user --> DisputeCaseSearch
+DisputeCaseSearch --> DisputeCaseDatabase
+DisputeCaseDatabase --> DisputeCaseSearch
+DisputeCaseSearch --> DisputeCaseStatusColorCoding
+DisputeCaseStatusColorCoding --> DisputeCaseDisplay
+DisputeCaseDisplay --> user
+
+@enduml
+```","@startuml
+component ""DisputeCaseSearch as ""Dispute Case Search Module""
+component DisputeCaseStatusColorCoding as ""Dispute Case Status Color Coding Module""
+component DisputeCaseDisplay as ""Dispute Case Display Module""
+component DisputeCaseDatabase as ""Dispute Case Database""
+
+user ""User"""" as user
+
+user --> DisputeCaseSearch
+DisputeCaseSearch --> DisputeCaseDatabase
+DisputeCaseDatabase --> DisputeCaseSearch
+DisputeCaseSearch --> DisputeCaseStatusColorCoding
+DisputeCaseStatusColorCoding --> DisputeCaseDisplay
+DisputeCaseDisplay --> user
+
+@enduml"
+nfr,100% of the card member and merchant services representatives shall use the Disputes application regularly after a 2-day training course,modification,soon,organization,2,3,5,low,"User story:
+As a Disputes application administrator, I want to ensure that 100% of the card member and merchant services representatives use the Disputes application regularly after a 2-day training course, so that the representatives can effectively manage disputes and provide quality service to customers.
+
+Components:
+- Disputes Application
+- Training Management System
+- User Adoption Monitoring Tool
+- Reporting and Analytics Module
+- Integration Module (for existing card member and merchant services systems)
+
+PlantUML:
+```plantuml
+@startuml
+component DisputesApplication as ""Disputes Application""
+component TrainingManagementSystem as ""Training Management System""
+component UserAdoptionMonitoringTool as ""User Adoption Monitoring Tool""
+component ReportingAndAnalyticsModule as ""Reporting and Analytics Module""
+component IntegrationModule as ""Integration Module""
+
+actor CardMemberServicesRepresentative as ""Card Member Services Representative""
+actor MerchantServicesRepresentative as ""Merchant Services Representative""
+actor Administrator as ""Administrator""
+
+CardMemberServicesRepresentative ---> DisputesApplication
+MerchantServicesRepresentative ---> DisputesApplication
+Administrator ---> DisputesApplication
+Administrator ---> TrainingManagementSystem
+Administrator ---> UserAdoptionMonitoringTool
+Administrator ---> ReportingAndAnalyticsModule
+
+DisputesApplication ---> IntegrationModule
+TrainingManagementSystem ---> DisputesApplication
+UserAdoptionMonitoringTool ---> DisputesApplication
+ReportingAndAnalyticsModule ---> DisputesApplication
+
+@enduml
+```","@startuml
+component ""DisputesApplication as ""Disputes Application""
+component TrainingManagementSystem as ""Training Management System""
+component UserAdoptionMonitoringTool as ""User Adoption Monitoring Tool""
+component ReportingAndAnalyticsModule as ""Reporting and Analytics Module""
+component IntegrationModule as ""Integration Module""
+
+actor CardMemberServicesRepresentative as ""Card Member Services Representative""
+actor MerchantServicesRepresentative as ""Merchant Services Representative""
+actor Administrator"" as ""Administrator""
+
+CardMemberServicesRepresentative ---> DisputesApplication
+MerchantServicesRepresentative ---> DisputesApplication
+Administrator ---> DisputesApplication
+Administrator ---> TrainingManagementSystem
+Administrator ---> UserAdoptionMonitoringTool
+Administrator ---> ReportingAndAnalyticsModule
+
+DisputesApplication ---> IntegrationModule
+TrainingManagementSystem ---> DisputesApplication
+UserAdoptionMonitoringTool ---> DisputesApplication
+ReportingAndAnalyticsModule ---> DisputesApplication
+
+@enduml"
+nfr,100% of card member services representatives shall be able to successfully create a dispute case on the first encounter after completing the training course,modification,soon,developer knowledge,2,3,3,low,"User story:
+As a card member services representative, I want to be able to successfully create a dispute case on the first encounter after completing the training course, so that I can efficiently resolve customer issues and improve their experience.
+
+Components:
+- Training Course Module
+- Dispute Case Creation Module
+- User Authentication Module
+- Role-Based Access Control Module
+- Dispute Case Management System
+- Representative Dashboard
+
+PlantUML:
+```plantuml
+@startuml
+component ""Training Course Module"" as TCM
+component ""Dispute Case Creation Module"" as DCCM
+component ""User Authentication Module"" as UAM
+component ""Role-Based Access Control Module"" as RBACM
+component ""Dispute Case Management System"" as DCMS
+component ""Representative Dashboard"" as RD
+
+actor ""Card Member Services Representative"" as CMSR
+
+CMSR --> TCM : completes training
+CMSR --> UAM : logs in
+UAM --> RBACM : authenticates role
+RBACM --> DCCM : grants access
+CMSR --> DCCM : creates dispute case
+DCCM --> DCMS : stores dispute case
+DCMS --> RD : updates dashboard
+RD --> CMSR : displays dispute case status
+
+@enduml
+```","@startuml
+component """"Training Course Module"" as TCM
+component ""Dispute Case Creation Module"" as DCCM
+component ""User Authentication Module"" as UAM
+component ""Role-Based Access Control Module"" as RBACM
+component ""Dispute Case Management System"" as DCMS
+component ""Representative Dashboard"" as RD
+
+actor ""Card Member Services Representative"""" as CMSR
+
+CMSR --> TCM : completes training
+CMSR --> UAM : logs in
+UAM --> RBACM : authenticates role
+RBACM --> DCCM : grants access
+CMSR --> DCCM : creates dispute case
+DCCM --> DCMS : stores dispute case
+DCMS --> RD : updates dashboard
+RD --> CMSR : displays dispute case status
+
+@enduml"

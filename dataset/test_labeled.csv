@@ -1,0 +1,84 @@
+Type,Requirement,Change,Urgency,Origin,N_dependencies,Cost,Time,Priority
+fr,The bottom 3/4 of the table will hold events that occur according to its relevance to current time,modification,soon,customer,1,2,2,low
+fr,The system shall color code events according to their variance from current time,modification,soon,customer,0,2,2,low
+fr,The system shall display data from the Sync Matrix 1.0 and Exercise Management Tool 1.0 applications,modification,soon,customer,1,2,2,low
+fr,The system shall link Events back to either the Sync Matrix 1.0 or the Exercise Management Tool 1.0 applications for modifications,modification,soon,customer,1,2,2,low
+fr,The system shall allow modification of the display,modification,soon,organization,0,2,2,high
+fr,The system shall offer a display of all the Events in the exercise,modification,soon,organization,0,2,2,high
+fr,The system shall filter data by: Venues and Key Events,modification,soon,organization,0,2,2,high
+fr,The system shall allow a user to define the time segments,modification,soon,organization,0,2,2,high
+fr,The system shall display the local and exercise time in separate clocks,modification,soon,organization,0,2,2,high
+fr,The system shall offer the ability to pause and resume the refresh of data,modification,soon,developer knowledge,0,2,2,low
+fr,The system shall provide charts for the Activity or Event actual versus assumed time,modification,soon,developer knowledge,0,2,2,low
+fr,The system shall provide a history report of changes made to the Activity or Event data,modification,soon,customer,0,2,2,low
+nfr,The look and feel of the system shall conform to the user interface standards of the smart device,modification,soon,customer,0,2,2,low
+nfr,The user interface shall have standard menus  buttons for navigation,modification,soon,organization,0,2,2,medium
+nfr,The system shall have a professional appearance,modification,soon,developer knowledge,0,2,2,low
+nfr,The product shall have a consistent color scheme and fonts,modification,soon,organization,1,2,2,medium
+nfr,The system shall be used by realtors with no training,modification,later,market,0,4,8,high
+nfr,The system shall be intuitive and self explanatory,modification,soon,developer knowledge,0,2,2,low
+nfr,The product shall be easy for a realtor to learn,modification,soon,developer knowledge,0,2,2,low
+nfr,The product shall use symbols and words that are naturally understandable by the realtor community,modification,soon,developer knowledge,0,2,2,low
+nfr,The product shall produce search results in an acceptable time,modification,soon,developer knowledge,0,2,2,low
+nfr,The search results shall be returned no later 30 seconds after the user has entered the search criteria,modification,later,customer,0,4,8,low
+nfr,The product shall generate a CMA report in an acceptable time,modification,soon,developer knowledge,0,2,2,low
+nfr,The CMA report shall be returned no later 60 seconds after the user has entered the CMA report criteria,modification,later,customer,0,4,8,low
+nfr,The product shall synchronize contacts and appointments in an acceptable time,modification,soon,organization,1,2,2,medium
+nfr,The product shall synchronize with the office system every hour,modification,soon,organization,1,2,2,medium
+nfr,The product shall be available for use 24 hours per day  365 days  per year,modification,soon,customer,2,2,2,low
+nfr,Out of 1000 accesses to the system  the system is available 999 times,modification,later,customer,0,4,8,low
+nfr,The product shall operate in offline mode whenever internet connection is unavailable,modification,later,customer,0,4,8,low
+nfr,The product shall allow the user to view previously downloaded search results  CMA reports  and appointments,modification,soon,organization,0,2,2,high
+nfr,The product shall retain user preferences in the event of a failure,modification,later,customer,0,4,8,low
+nfr,100% of saved user preferences shall be restored when system comes back online,modification,soon,customer,0,2,2,low
+nfr,The product shall be able to support multiple remote users,addition,soon,project vision,0,2,2,high
+nfr,The product shall be able support 1000 simultaneous users,addition,soon,project vision,3,4,5,high
+nfr,The product shall be capable of handling the existing 1000 users. This number is expected to grow 5 times within the next year,modification,soon,customer,0,2,2,low
+nfr,The product shall be installed by an untrained realtor   without recourse to separately-printed instructions,modification,later,customer,3,6,11,low
+nfr,90% of untrained realtors shall be able to install the product on their device without printed instructions,modification,later,market,3,6,11,medium
+nfr,The product is expected to run on Windows CE and Palm operating systems,modification,soon,customer,1,2,2,low
+nfr,Only registered realtors shall be able to access the system,modification,later,organization,1,5,10,medium
+nfr,Every user of the system shall be authenticated and authorized,modification,soon,organization,1,2,2,medium
+nfr,The product shall prevent its data from incorrect data being introduced,modification,later,developer knowledge,1,5,10,low
+fr,The system shall allow a real estate agent to query MLS information,modification,soon,market,1,2,2,high
+fr,The user shall be able to get driving directions to a selected property,modification,soon,customer,1,2,2,low
+fr,The user shall be able to download appointments and contact information for clients,modification,soon,customer,1,2,2,low
+fr,The system shall display clear property images in the search results,modification,soon,customer,1,2,2,low
+fr,The system shall update or create new property listings in the MLS,addition,soon,market,1,2,2,high
+fr,Realtor shall be able to generate a CMA report based on property criteria,modification,soon,market,1,2,2,high
+fr,The system shall be able to call the seller or buyer to schedule an appointment,modification,soon,customer,3,3,4,low
+fr,The realtor shall be notified of new client appointments after automatic synchronization with office system,addition,soon,customer,1,2,2,low
+fr,The realtor shall be able to retrieve a map showing property locations for a specified area,modification,soon,organization,1,2,2,high
+fr,The system shall notify the realtor when a seller or buyer responds to an appointment request,modification,later,customer,3,6,11,low
+fr,The product shall allow the user to save the property search results,modification,later,customer,1,5,10,low
+nfr,The system shall be easy to use by the Program Administrators/Nursing Staff Members,modification,soon,organization,4,4,5,medium
+nfr,All of the users shall be able to use the system after one day of training,modification,soon,developer knowledge,1,2,2,low
+nfr,The system shall help the user avoid making mistakes while scheduling classes and clinicals for the nursing students,modification,soon,organization,3,3,4,high
+nfr,The number of mistakes noted by the students shall be decreased by 50% in the first year,modification,later,developer knowledge,1,5,10,low
+nfr,The system shall be intuitive to the Program Administrators/Nursing Staff Members,modification,soon,organization,3,3,4,medium
+nfr,2 out of 3 Program Administrators/Nursing Staff Members shall successfully be able to use the system to manage the scheduling of classes and clinicals,modification,soon,organization,3,3,4,high
+nfr,The system shall use symbols and words that are naturally understandable by the user community,modification,soon,project vision,2,2,2,medium
+nfr,The verbiage used within the system shall be consistent with Standard English and the terminology of the national Nursing Community,modification,soon,developer knowledge,1,2,2,low
+nfr,Staff members shall be able to complete a set of tasks in a timely manner,modification,soon,developer knowledge,1,2,2,low
+nfr,The response time of general student management tasks shall take no longer than 5 seconds and the response time of schedule generation shall take no longer than 30 seconds,modification,later,organization,1,5,10,medium
+nfr,The system shall be available for use between the hours of 8am and 6pm,modification,soon,customer,3,3,4,low
+nfr,The system shall achieve 95% up time,modification,soon,project vision,1,2,2,medium
+nfr,system shall be able to handle all of the user requests/usage during business hours,modification,soon,customer,1,2,2,low
+fr,The system shall be able to display a printable summary of the system log,modification,soon,organization,0,2,2,high
+fr,The system shall contain contact information (e-mail and phone number) for all people relevant to the system  including (but not limited to) staff members  students  lecture instructors  clinical lab instructors  and clinical site administrators,modification,soon,organization,0,2,2,high
+fr,The system will use the stored e-mail addresses as a primary means of communicating information to affected parties,addition,soon,developer knowledge,0,2,2,high
+fr,The system will notify affected parties for routine communication purposes including but not limited to informing students of upcoming offered classes (timeline) and what their schedule will be/shall be,modification,later,organization,0,4,8,medium
+fr,The system will notify affected parties when changes occur affecting clinicals including but not limited to clinical section capacity changes  and clinical section cancellations,modification,later,customer,0,4,8,low
+fr,The system will notify affected parties when changes occur affecting classes including but not limited to class cancellations  class section detail changes  and changes to class offerings for a given quarter,modification,later,organization,0,4,8,medium
+fr,The system will notify affected parties when changes occur affecting cohorts including but not limited to changes to the sequence for a cohort�s program of study and changes to a given week�s schedule (lab cancelled this week due to instructor illness),modification,later,organization,0,4,8,medium
+fr,The system will notify affected parties when changes occur affecting specific students including but not limited to changing a student�s status from full time to part time and moving a student to a different clinical section,modification,later,developer knowledge,0,4,8,low
+fr,Program Administrators/Nursing Staff Members shall have the ability to modify information relating to cohorts including cohort identifier  program of study  preferred sequence of classes and quarters that a cohort will be taking specific classes,modification,soon,organization,4,4,5,high
+fr,Program Administrators/Nursing Staff Members shall have the ability to modify information relating to a Program of Study within the Nursing Department  including the Program of study name  and required classes for that Program of Study,modification,soon,organization,6,4,5,high
+fr,Program Administrators/Nursing Staff Members shall have the ability to modify information relating to a Clinical Site including the clinical site name  site contact person  contact information  and address,addition,soon,organization,3,4,5,high
+fr,Program Administrators/Nursing Staff Members shall have the ability to modify information relating to a Clinical Lab Section  including the clinical site name  the department/section for the lab  the class  instructor  day and time of lab  and contact information,modification,soon,organization,3,3,4,high
+fr,Program Administrators/Nursing Staff Members shall have the ability to modify information relating to a Nursing Student  including student ID  student name  phone number  e-mail  status (full time or part time)  and program of study,modification,soon,organization,1,2,2,high
+nfr,The Disputes application shall comply with the corporate standards for user interface creation for internally and externally used applications,modification,soon,organization,1,2,2,medium
+nfr,All screens created as part of the Disputes application must comply with corporate standards for interface creation,modification,soon,organization,1,2,2,medium
+nfr,The list of dispute cases that are displayed after a search is performed must be color coded for easy identification of dispute cases based upon the dispute case status,modification,soon,organization,1,2,2,medium
+nfr,100% of the cardmember and merchant services representatives shall use the Disputes application regularly after a 2-day training course,modification,soon,organization,2,2,2,medium
+nfr,100% of cardmember services representatives shall be able to successfully create a dispute case on the first encounter after completing the training course,modification,soon,developer knowledge,2,2,2,low
