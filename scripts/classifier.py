@@ -7,6 +7,7 @@ from sklearn.manifold import TSNE
 from sklearn.decomposition import PCA
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.tree import DecisionTreeClassifier
+from xgboost import XGBClassifier
 import seaborn as sns
 from sklearn.preprocessing import OrdinalEncoder
 from sklearn.metrics import confusion_matrix, classification_report, f1_score, accuracy_score
@@ -179,6 +180,14 @@ model = DecisionTreeClassifier(
     min_samples_split=2,
     min_samples_leaf=2,
     max_depth=5,
+    random_state=42
+)
+
+# XGBoost Classification
+model = XGBClassifier(
+    n_estimators=100,
+    max_depth=5,
+    learning_rate=0.1,
     random_state=42
 )
 
