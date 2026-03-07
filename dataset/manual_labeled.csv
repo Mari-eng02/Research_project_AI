@@ -1,0 +1,24 @@
+Type,Requirement,Priority
+fr,The bottom 3/4 of the table will hold events that occur according to its relevance to current time,low
+fr,The system shall color code events according to their variance from current time,low
+fr,The system shall provide charts for the Activity or Event actual versus assumed time,medium
+nfr,The system shall be used by realtors with no training,high
+nfr,The system shall be intuitive and self explanatory,high
+nfr,The product shall be easy for a realtor to learn,high
+nfr,Only registered realtors shall be able to access the system,high
+nfr,Every user of the system shall be authenticated and authorized,high
+nfr,The product shall prevent its data from incorrect data being introduced,high
+fr,The system shall allow a real estate agent to query MLS information,high
+fr,The user shall be able to get driving directions to a selected property,medium
+fr,The system shall update or create new property listings in the MLS,high
+fr,Realtor shall be able to generate a CMA report based on property criteria,low
+nfr,system shall be able to handle all of the user requests/usage during business hours,high
+fr,The system shall be able to display a printable summary of the system log,high
+fr,The system shall contain contact information (e-mail and phone number) for all people relevant to the system  including (but not limited to) staff members  students  lecture instructors  clinical lab instructors  and clinical site administrators,high
+fr,The system will use the stored e-mail addresses as a primary means of communicating information to affected parties,high
+nfr,The list of dispute cases that are displayed after a search is performed must be color coded for easy identification of dispute cases based upon the dispute case status,medium
+nfr,The system shall be intuitive to the Program Administrators/Nursing Staff Members,high
+nfr,The system shall use symbols and words that are naturally understandable by the user community,high
+
+
+9
