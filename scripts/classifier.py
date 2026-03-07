@@ -122,6 +122,16 @@ target_encoder = OrdinalEncoder(categories=[['low', 'medium', 'high']])
 y_train = target_encoder.fit_transform(y_train.to_frame()).ravel()
 y_test = target_encoder.transform(y_test.to_frame()).ravel()
 
+# Correlation between urgency and priority encoded
+df_test['Urgency_encoded'] = encoded_test_cat[:, 2]
+df_test['Priority_encoded'] = y_test
+corr = df_test['Urgency_encoded'].corr(df_test['Priority_encoded'])
+print(f"Correlation between urgency and priority in the test set: {corr:.2f}")
+
+df_train['Urgency_encoded'] = urgency_encoded
+df_train['Priority_encoded'] = y_train
+corr = df_train['Urgency_encoded'].corr(df_train['Priority_encoded'])
+print(f"Correlation between urgency and priority in the training set: {corr:.2f}")
 
 # Correlation matrix
 X_combined = np.vstack([X_train_full, X_test_full])
