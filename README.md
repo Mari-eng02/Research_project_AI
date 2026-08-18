@@ -6,6 +6,8 @@ This project proposes an AI-based tool to support software requirement prioritiz
 
 # Repository Structure
 The repository is organized as follows:
+
+```text
 .
 ├── dataset/
 │   ├── case_study.csv
@@ -39,6 +41,7 @@ The repository is organized as follows:
 ├── preprocess_input.py
 ├── requirements.txt
 └── README.md
+```
 
 # Dataset
 The dataset consists of functional and non-functional software requirements describing a generic software system. Requirements cover typical aspects such as usability, availability, performance, and service quality. Each requirement is associated with structured features including urgency, origin of the change, type of change, number of dependencies, estimated cost, estimated implementation time, and priority.
@@ -58,10 +61,18 @@ Models are evaluated using a held-out pre-labeled test set. Since evaluation rel
 
 # How to Run
 1. Clone the repository:
+   ```bash
    git clone https://github.com/Mari-eng02/Research_project_AI.git
    cd Research_project_AI
-2. Install the required dependencies: pip install -r requirements.txt
-3. Run the web app: python app.py
+   ```
+3. Install the required dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+5. Run the web app:
+   ```bash
+   python app.py
+   ```
 
 Important: To enable the AI-based semantic analysis using LLaMA 3, a valid Groq API key must be provided as an environment variable.
 
